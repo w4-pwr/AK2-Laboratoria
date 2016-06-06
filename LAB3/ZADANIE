@@ -1,0 +1,13 @@
+1. ciag cyfr na wejsciu (dziesietne + abcdef/ABCDEF) zamienic na wartosc liczby repezenta
+(zapis dwojkowy) 
+
+2. wartosc dwojkowa liczby (calkowita)  w reprezentacji: 
+dziesietnej,
+szesnastkowej, 
+dwojkowej
+
+
+
+liczby na wejsciu zamienic na wartosci, cyfry w kodzie binarnym, mul imul div idiv to ogarnąć dogłębnie
+wart liczby dwójkowej(calkowitej) wyprowadzić na monitor w wersji hex, dec, bin
+schemat hornera

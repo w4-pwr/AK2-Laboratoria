@@ -1,0 +1,29 @@
+Laboratorium AK2, 14.03.2010, 15:15-17:50, Tymon Tobolski, 181037
+
+== Opis
+Program wczytuje dwa ciągi znaków, dane oraz separator 
+i dzieli ciąg "dane" na części przez ciąg "separator".
+Na wyjściu program wypisuje uzyskane części posortowane
+rosnąco po długości.
+
+
+== Działanie
+Przykładowe uruchomienie programu
+
+Dane: a,bb,c,ddd,e,ffff,g
+Separator: ,
+a
+c
+e
+g
+bb
+ddd
+ffff
+
+
+== Uruchomienie
+$ make test
+
+
+== Ogranicznia
+Maksymalna długość ciągów "dane" i "separator" to 100 znaków

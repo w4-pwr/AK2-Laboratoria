@@ -1,0 +1,37 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  Ts/call  Ts/call  name    
+100.00      0.81     0.81                             rotateI
+  0.00      0.81     0.00        1     0.00     0.00  getBitmapContent
+  0.00      0.81     0.00        1     0.00     0.00  getLen
+  0.00      0.81     0.00        1     0.00     0.00  readFile
+  0.00      0.81     0.00        1     0.00     0.00  saveFile
+
+			Call graph
+
+
+granularity: each sample hit covers 4 byte(s) for 1.23% of 0.81 seconds
+
+index % time    self  children    called     name
+                                                 <spontaneous>
+[1]    100.0    0.81    0.00                 rotateI [1]
+-----------------------------------------------
+                0.00    0.00       1/1           main [26]
+[2]      0.0    0.00    0.00       1         getBitmapContent [2]
+-----------------------------------------------
+                0.00    0.00       1/1           main [26]
+[3]      0.0    0.00    0.00       1         getLen [3]
+-----------------------------------------------
+                0.00    0.00       1/1           main [26]
+[4]      0.0    0.00    0.00       1         readFile [4]
+-----------------------------------------------
+                0.00    0.00       1/1           main [26]
+[5]      0.0    0.00    0.00       1         saveFile [5]
+-----------------------------------------------
+
+Index by function name
+
+   [2] getBitmapContent        [4] readFile                [5] saveFile
+   [3] getLen                  [1] rotateI

@@ -1,0 +1,22 @@
+Laboratorium AK2, 14.03.2010, 15:15-17:50, Tymon Tobolski, 181037
+
+== Opis
+Program wczytuje ciąg znaków zawierający liczby zapisane w 
+formacie szesnastkowym (hex) oddzielone spacją, sumuje je
+i wyświetla w systemie o podstawie 2, 8, 10 i 16
+
+
+== Działanie
+Liczy hex oddzielone spacja: 1 2 ff aB
+110101101
+655
+429
+1AD
+
+
+== Uruchomienie
+$ make test
+
+
+== Ogranicznia
+Maksymalna długość ciągu z liczbami wynosi 100 znaków

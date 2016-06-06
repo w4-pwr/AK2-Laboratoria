@@ -1,0 +1,11 @@
+zmienny przecinek w ASM
+reszta  wc
+domnienae argumenty ze szczytu stosu 
+literka 'p' dodatkowa operacja zdjeica ze szczytu stosu 'and pop' zeby wynik byl na szczycie stosu 
+efpsf  - floating point state system
+floating pont control system - fpcs 
+
+1. genrowanie wszystkich mozliwych wyjatkow i rozpoznawwac
+2. aplikacja prosta, zmiennoprzecinkowa , pierwiastek rownania kwadratowego 
+3. obliczanie pola trojkata ze wzoru herona 
+4. tablicowanie funkcji sinus

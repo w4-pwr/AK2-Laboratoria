@@ -1,0 +1,9 @@
+Lab 5
+-----
+
+Uruchomienie:
+make test
+
+Porownanie z SSE:
+SSE daje gorsze wyniki (jest wolniejsze)
+

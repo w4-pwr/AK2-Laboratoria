@@ -1,0 +1,34 @@
+Laboratorium AK2, 28.02.2010, 15:15-17:50, Tymon Tobolski, 181037
+
+== Opis
+hello - Program "Hello world" w asm
+prompt - Program wczytujacy z STDIN
+
+
+== Działanie
+Program 'hello' wypisuje:
+Hello, world!
+
+Program 'prompt' wyswietla prompta i czeka na wczytania znakow (+enter)
+i wyswietla wpisany tekst
+
+
+== Uruchomienie
+hello:
+  $ make hello
+  $ ./hello
+
+prompt:
+  $ make prompt
+  $ ./prompt
+
+oba:
+  $ make test
+
+
+== Wersja programu 'hello' uzywajaca as + ld
+$ svn up -r 40
+$ make clean all
+
+(komenda make test zostala dodana pozniej, a kochane svn sobie z tym nie radzi [wole nie probowac ;) ])
+

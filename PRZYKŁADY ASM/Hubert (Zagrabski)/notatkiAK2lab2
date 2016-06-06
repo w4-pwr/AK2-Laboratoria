@@ -1,0 +1,354 @@
+Notatki LAK2 drugie
+
+$strace ->debugowanie 
+
+$strace ./program > (przekierowanie) /dev/null (czarna dziura)
+dostajemy
+execve('string wywolania', ['string ktory zostal wpisany do terminala'], /*liczba varow*/)=0
+write(1, "Hello!\n", 7)                 = 7  <----(co zostalo wyswietlone)
+_exit(0)                                = ?  <----(arg wyjscia)
+
+
+
+_____________
+(gdb) print/f $rax 
+he(x), (d)ecimal, (u)nsigned, (o)ctal, (t)wo, (c)haracter ASCII, (f)loat 
+
+(gdb)X/_ _ _  ---examin
+
+pierwszy _ ilość spod dwojki
+drugi _ (b)yte 8bit, (h)alfword 16bit, (w)ord 32bit, (g)iant 64bit, (s)tring, (i)nstruction 
+trzeci _ --- tak jak w print/_
+
+(gdb)display/ (cos co bedzie wyswietlanie przy kazdym nastepnym gdb)
+np
+(gdb)display/i $pc		---- czyszczenie listy display > /undisplay
+(gdb)display/x $rax
+
+
+(gdb)stepi ---krok po kroku
+
+
+(gdb)x/8gh $rsp -- wyswietlenie stosu
+
+
+STOS
+nr - zawartosc 
+1 - ilosc arg z linii polecen
+2 - adres arg1
+3 - adres arg2
+4 - adres arg3
+.
+.
+.
+0000000000000 separator
+	adres zmiennej 1
+	adres enum 2
+	adres enum 3
+	.
+	.
+	.
+	.
+	.
+0000000000000 separator
+koniec stosu
+
+PATH - /bin : /usr/bin itd
+export A=home
+echo $PATH 
+
+
+(gdb)x/s *((void**)($rsp+8))   ---- wskaznik na adres
+
+
+
+dyrektywy
+
+.byte 2, 4, 8 (umiesci ciag w pamieci binarnie)
+.word (16bit)
+.long (32bit)
+.quad (64bit)
+
+.repr 8
+	.byte 2
+.endr		//powtorzenie 8 razy tego co jest w srodku
+
+xchy A,B //taki swap
+movz //przenoszenie z mniejszego do wiekszego
+
+push A //wrzucanie do stosu
+pop A //zdejmowanie ze stosu
+
+pushf //rejestr flag na stos
+popf //rejestr flag ze stosu
+
+offset(baza, licznik, skalar)		=== offset+baza+(licznik*skalar)
+
+
+lea // wrzuca adres do operandu b -------- lea (buf),%r8 <=> mov $buf, %r8
+
+mapuje zadany file deskryptor 
+9 mmap(addr, size, prot, map, fd, offset)
+mapuje plik przez fd 
+addr -> null = 0 
+size -> wielokrotnosc strony w ramie, 4096 wielokrotnosc
+prot -> flagi protekcji, 	PROT_NONE 	0x0
+				PROT_READ	0x1
+				PROT_WRITE	0x2
+				PROT_EXEC	0x4
+
+	
+map -> flagi map	MAP_SHARED	
+			MAP_PRIVATE	
+			MAP_ANONYMOUS	
+
+/usr/include/bits/mman_linux.h
+(unistd)
+
+11 munmap(addr, size)
+
+
+addr rdi
+size rsi
+prot rdx
+map r10
+fd r8
+offset r9
+
+___________________________________________________________________
+___________________________________________________________________
+___________________________________________________________________
+___________________________LAB 3___________________________________
+___________________________________________________________________
+___________________________________________________________________
+___________________________________________________________________
+
+1. Zaimplementować podane funkcje:
+	a) void* allocate(int size); (1pkt)
+	b) void* open_file(char* filename) (1pkt)
+	c) long long* subtraction(long long* A, long long* B, int lon); (1pkt)
+	d) void prints(char *); (0.5pkt)
+	e) void printi(int i); (0.5pkt)
+2. Makefile (0.5pkt)
+3. Wrapper w C (0.5pkt)
+
+
+as -o hello.o hello.s -> tworzymy elf'a
+gcc -o main.o main.c -c -> tworzymy elf'a koniecznie z -c bo inaczej nie pojdzie
+gcc -o main main.o hello.o -> linkujemy wszystko razem
+
+
+argumenty sa wrzucane -> rdi,rsi,rdx,rcx,r8,r9, rsp....
+
+return addres na stosie na gorze
+ret -> rax
+
+objdump -d main2.o
+
+___________________________________________________________________
+___________________________________________________________________
+___________________________________________________________________
+___________________________LAB 4___________________________________
+___________________________________________________________________
+___________________________________________________________________
+___________________________________________________________________
+
+1. Zapisać do pliku przebieg funkcji rzutu poziomego
+	a) zapisać n-kolejnych wartości funkcji (1)
+	b) zapisać do momentu osiągnięcia h=0 (0.5)
+	c) wypisać na ekran prędkość w momencie uderzenia o ziemię (0.5)
+	d) pobrać plik wejściowy z parametrami v0, h0, g, dt (0.5) (mmap)
+
+v(t) = pierw(v0^2 + (gt)^2))
+v zmiemia = pierw(v0^2 + 2gh0)
+
+2. Odczytujemy przebieg funkcji z pliku
+	a) wczytać + sparsować plik (mmap +bdc) (0.5)
+	b) Obliczamy całkę z danych wejściowych (1) - najlepiej prostokąty
+3. Makefile (0.5)
+4. Biblioteka *.o, załadować z C, pomiar czasu z wykorzystaniem ctime.h (0.5) 
+
+8 ah, al 	|	r8b	|	movb	|		.byte
+16 ax		|	r8w	|	movs	|		.word
+32 eax		|	r8d	|	movl	|	flds	.long	.single (.float)
+64 rax		|	r8	|	movq	|	fldl	.quad	.double
+80				|		|	fldt		.tfloat (jak long double)
+
+_____________________
+R7
+.
+.
+.
+.
+.
+.
+R0
+______________________
+80-bit
+
+16bitowe:
+TAG WORD
+STATUS WORD
+CONTROL WORD
+
+
+tag word <--- empty
+		zero +0 -0
+		valid
+		special (invalid)
+
+SW <<- X | W | TOP(wskaznik stosu) | Control2-Control0 | ErrorSummary | StockFault | PE | VE | OF | Zero divError | DenomarlizedError | Invalid operationError
+
+stack fault - jak przerzucimy przez caly stos
+%st(0) --- tak sie dostajemy
+
+CW <<- |xxxxxx| XC | RatingControl | PC |xx | PM UM OM ZM DM IM (maski)
+
+
+flex czysci flagi errorow
+
+
+gdb) info float
+(gdb) x/wf &a
+(gdb) display/i $pc
+
+jmp 1b, 1f <<< do wyzszej jedynki lub nizszej (etykiety)
+(gdb) x/i $pc ---- na cyzm sie wysypalo
+
+
+fbld		--- load BinaryDecimalCode
+fbstp		--- store BDC
+
+10 bajtów
+1024 w BDC
+buf: .byte 0x24 0x10 0x00 ...
+
+
+
+
+___________________________________________________________________
+___________________________________________________________________
+___________________________________________________________________
+___________________________LAB 5___________________________________
+___________________________________________________________________
+___________________________________________________________________
+___________________________________________________________________
+
+1. Manipulacja bitmapą (mmap + mmx)
+	a) histogram dla wybranej skladowej
+		- do wgladu w gdb (0.5pkt)
+		- wyswietlanej na ekranie (0.5pkt)
+	b) wycięcie podanej składowej  (1pkt)
+	c) dodanie stałej do danej składowej (1pkt)
+2. Rzut poziomy (sse)
+	a) zapisanie n-kolejnych/do uderzenia do pliku (1pkt)
+3. Makefile (0.5pkt)
+4. Biblioteka, wrapper do c, porownanie czasow z FPU (0.5pkt)
+
+
+
+
+
+1. MMX (Multimedia eXtension) - pozwala na operownanie na wielu floatach na raz
+
+mm0-mm7 (rejestry 64bit)
+	8byte/4word/2long
+(jest na tych samych pamieciach co FPU i nie można używać)
+
+mm1  |0x01 0x00 0x02 0x00 0x03 .....|
+mm0  |0x20 0x30 0x40 0x50 0x80 .....| (8 klockow)
+modulo					nasycenie
+
+0xFE					0xFE					
+0x02					0x02
+____					____
+0x00					0xFF (nasycenie nie przekreci licznika)
+
+	
+PADD + Byte/Word/Dword			PADD 
+PSUB + B/W/D				PSUB + SB/SW USB/USW (do nasycenia)
+
+
+
+mnozenie
+
+	0xFE
+	0x02
+	____
+      0x01FD
+
+PMUL HW/LW (mnozenie wordow, dostanie sie gore/dol)
+
+POR PAN PXOR
+PCMP EQ B/W/D GT b/w/d- packet compare
+
+przy EQ B ustawia w mm0 0x00 jesli rozne 0x11 jesli takie same
+
+EMMS - czyscie mmx'a, mozna korzystac z fpu
+
+
+
+SEE 
+
+single - sa niezalezne - pring $xmm0
+128bit xmm0-xmm7
+movups d, %xmm0
+movups d, %xmm1
+
+add ps/pd
+sub
+mul
+div
+
+
+
+BMP
+
+plik.bmp (24bit)
+	|
+	|2:6 lenght
+	|
+54bit  <|
+	|
+	|
+	 bgrbgrbgrbgrbgrbgrbgrbgrbgrbgrbgrbgrbgrbgrbgrbgrbgrbgrbgrbgrbgr az do konca pliku
+
+
+
+
+___________________________________________________________________
+___________________________________________________________________
+___________________________________________________________________
+___________________________LAB 6___________________________________
+___________________________________________________________________
+___________________________________________________________________
+___________________________________________________________________
+
+1. Mnożenie wektorów
+	- bez prefetch (0.5pkt)
+	- z prefetcha (1pkt)
+2. Mnożenie macierzy
+	- tablica wskaźników (0.5pkt)
+	- druga tablica (0.5pkt)
+	- z prefetch (1pkt)
+3. Makefile (0.5pkt)
+4. Wrapper w c, pomiar czasu "time.h" (1pkt)
+
+
+prefetcht0 buf <-- upewnia sie zeby buf siedzial w cache'u
+
+
+
+
+prefetcht0
+prefetcht1
+prefetcht2
+prefetchta
+
+
+
+
+argumenty sa wrzucane -> rdi,rsi,rdx,rcx,r8,r9, rsp....
+
+
+

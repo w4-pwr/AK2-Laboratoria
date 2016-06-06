@@ -1,0 +1,11 @@
+wstawka z i bez MMX
+profiler i cykle procesora
+
+100.00      0.06     0.06                             nextContrast (MMX)
+100.00      0.17     0.17                             nextContrast2
+
+100.00      0.09     0.09                             grayMake
+100.00      0.12     0.12                             grayMakeMmx (MMX)
+
+100.00      0.81     0.81                             rotateI
+

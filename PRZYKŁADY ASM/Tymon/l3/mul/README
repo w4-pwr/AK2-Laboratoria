@@ -1,0 +1,20 @@
+Laboratorium AK2, 29.03.2010, 15:15-17:50, Tymon Tobolski, 181037
+
+== Opis
+Program wczytuje dwie liczby o nieograniczonej* precyzji w formacie hex.
+Na wyjściu program wypisuje wynik mnozenia podanych liczb (rowniez w formacie hex)
+
+== Działanie
+Przykładowe uruchomienie programu
+
+72304985672304765923874659238746592387465923874659238746592387465987
+20398475023984750293847509783452790823459780235479802345798023579802357908237980
+e5fb1062290c2e97b6f273c71c1c5cd20a5cfc46184238a07b259691227cdbd7a9d46d2558d49664ffd34eb5418ac5ce05d16960127452a031d1530fed3a457407d8b3b51ed58f29280
+
+
+== Uruchomienie
+$ make test
+
+
+== Ogranicznia (*)
+Maksymalna długość wczytanych liczb to 20971520 znakow kazda (16MB)

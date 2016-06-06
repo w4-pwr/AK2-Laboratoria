@@ -1,0 +1,92 @@
+.data
+ ## zamienilem float na double - macie 64 bitowe rejestry wiec looz
+wynik: .float 1.57 #zmienna na wynik - tez dla naszej wartosci
+
+ 
+#parametry na stosie
+.equ P1, 2*4 #liczba
+.equ P2, 3*4 #krokow
+
+.globl main 
+.text
+.global sinus
+
+# w xmm0 mamy kat, a w %rdi ilosc krokow
+
+sinus:
+	pushl %ebp
+	movl %esp, %ebp
+	finit
+	
+	pushl %eax
+	pushl %ebx
+	pushl %esi
+	pushl %edi
+
+        ##pobieram dane - zauwaz, ze ebp
+        movl P2(%ebp), %eax
+        sall %eax ## * 2
+        movl %eax, %edi                 #licznik obiegow petli
+       
+        movl $0, %esi                  # i = 0, esi i edi bo oznaczaja source index i dest index - lubie ich uzywac
+        
+        #laduje przed petla, zdejmje wiekszosc po
+        fld P1(%ebp)
+        fld %st(0) #kopiuje
+        fmul %st(1), %st(0)##skrocilem
+        fchs
+
+ 		fldz #miejsce na wynik
+ 		fld1 #laduje mianownik
+ 		
+ 	subl $4, %esp #miejsce na stosie dla inta
+petla:
+		fld %st(3) #kopiuje licznik
+		fdiv %st(1), %st(0) #licznik * mianownik
+		faddp %st(0), %st(2) #dodaje do wyniku i usuwam ze stosu
+		
+		fld %st(3) #kopiuje licznik ponownie
+		fmul %st(3), %st(0) #indeksy sie zmieniaja, pamietaj 
+		#ponadto wiekszosc operacji jest tylko na szcyzcie stosu
+ 		fxch %st(4) #zamiana starego z nowym
+ 		
+ 		movl %esi, %ebx
+ 		movl %esi, %eax
+ 		addl $2, %eax
+ 		addl $3, %ebx #immul to mnozenie dolne - takie jak w c dla inta
+ 		imull %ebx, %eax
+ 		
+        fstp (%esp) #nieudolne pozbywanie sie rejestru
+        movl %eax, (%esp) #ladowanie na szczyt stosu wartosci (i+3)*(i+2)
+        fild (%esp)  #nei mozna tego zrobic miedzy rejestrami - sa odseparowane
+        
+        fmulp %st(0), %st(1)
+ 
+        addl $2, %esi
+        cmpl %esi, %edi #wzgledem edi czy jest wieksze, pamiętaj o suffixach odpowiednich :)
+        ja petla
+        
+        fxch %st(1) #czyszcze stos, i zostawie na nim wynik dla c
+        fxch %st(3)
+        fstp (%esp)
+        fstp (%esp)
+        fstp (%esp)
+        
+        addl $4, %esp #usuwam miejsce na stosie
+        #stare wartosci
+        popl %edi
+        popl %esi
+        popl %ebx
+        popl %eax
+        
+        leave
+		ret
+
+main:
+	#mock argumentow
+	pushl $5
+	pushl wynik
+	call sinus
+	addl $8, %esp #zdejmuje wartosci
+	
+	call exit

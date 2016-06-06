@@ -1,0 +1,12 @@
+Program liczy funkcję sinus z rekurencyjnego wzoru
+
+a_k = 3*a_k+1 - 4 * (a_k+1)^3
+
+przyjmując przybliżenie a_k+1 = sin(x/3^(k+1)) = x/3^(k+1)
+
+Funkcja sinus napisana jest w asm i ładowana z poziomu programu napisanego w c. Program przedstawia wynik obliczonej funkcji sin dla pomiaru kontrolnego z math.h oraz dla funkcji sinus dla 3 różnych trybów zaokrąglenia. 
+
+make - kompilacja
+make clean - czyszczenie
+make test - kompilacja + przykładowy test
+Funkcja sinus pozwala na liczenie wartości sin(x) z zadaną ilością iteracji k i trybem zaokrąglania.

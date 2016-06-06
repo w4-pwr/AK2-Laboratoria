@@ -1,0 +1,8 @@
+c + asm
+1. wywolanie f. bibl C w ASM (print f)
+
+2a. wlasna funkcja assemblerowej (obojetnie jaka) w programie C
+
+2b. wywolanie funkcji napisanej w C w programie w ASM
+
+3. wstawki asemblerowe w programie w C

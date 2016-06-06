@@ -1,0 +1,13 @@
+Laboratorium AK2, 14.03.2010, 15:15-17:50, Tymon Tobolski, 181037
+
+== Opis
+Opis znajduje się w plikach
+* split/README
+* conv/README
+
+== Uruchomienie obu programów
+$ make test
+
+
+== Ogranicznia
+Patrz: Opis

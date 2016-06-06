@@ -1,0 +1,83 @@
+SYSCALL = 0x80
+SYS_EXIT = 1
+STDIN = 0
+SYS_READ = 3
+STDOUT = 1
+SYS_WRITE = 4
+.data
+.equ fixletter, 'A'-':'
+end_program: .ascii "\nKoniec\n"
+end_program_len = . - end_program
+buffer: .space 0x40
+buffer_len = . - buffer
+.text
+.globl _start
+
+_start:
+movl $buffer_len, %edx
+movl $buffer, %ecx
+movl $STDIN, %ebx
+movl $SYS_READ, %eax
+int $SYSCALL
+movl $0, %ebx
+movl $0, %esi
+
+#c2 to 2
+convert:
+movb buffer(%esi), %al
+cmp $'0', %al
+jb clear_buf
+cmp $'1', %al
+ja clear_buf
+
+subb $'0', %al
+sall $0x1, %ebx
+orb %al, %bl
+inc %esi
+jmp convert
+
+clear_buf:
+#clear buffer
+movl $buffer_len, %ecx
+clear_next:
+dec %ecx
+movb $0x0, buffer(%ecx)
+jnz clear_next
+
+#2 to c16
+movl %esi, %ecx
+sarl $0x2, %ecx
+convert_2_c16:
+movb %bl, %al
+shrl $0x4, %ebx
+and $0x0F, %al
+cmpb $0x0, %al
+jz finish
+cmpb $0x9, %al
+jbe makeletter
+addb $fixletter, %al
+makeletter:
+addb $'0', %al
+movb %al, buffer(%ecx)
+dec %ecx
+jnz convert_2_c16
+
+finish:
+# end of program wite number
+movl $buffer_len, %edx
+movl $buffer, %ecx
+movl $STDOUT, %ebx
+movl $SYS_WRITE, %eax
+int $SYSCALL
+
+#end text
+movl $end_program_len, %edx
+movl $end_program, %ecx
+movl $STDOUT, %ebx
+movl $SYS_WRITE, %eax
+int $SYSCALL
+
+movl $SYS_EXIT, %eax
+movl $0, %ebx
+int $SYSCALL
+

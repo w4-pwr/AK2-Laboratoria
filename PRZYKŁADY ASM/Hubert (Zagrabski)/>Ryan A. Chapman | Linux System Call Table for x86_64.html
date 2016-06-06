@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html style="position: relative; transition: right 0.25s ease-in-out 0s; right: 0px;"><head><script src="%3ERyan%20A.%20Chapman%20%7C%20Linux%20System%20Call%20Table%20for%20x86_64_pliki/rapid-3.js"></script><script>var __pbpa = true;</script><script>var translated_warning_string = 'Warning: Never enter your Tumblr password unless \u201chttps://www.tumblr.com/login\u201d\x0ais the address in your web browser.\x0a\x0aYou should also see a green \u201cTumblr, Inc.\u201d identification in the address bar.\x0a\x0aSpammers and other bad guys use fake forms to steal passwords.\x0a\x0aTumblr will never ask you to log in from a user\u2019s blog.\x0a\x0aAre you absolutely sure you want to continue?';</script><script type="text/javascript" language="javascript" src="%3ERyan%20A.%20Chapman%20%7C%20Linux%20System%20Call%20Table%20for%20x86_64_pliki/pre_tumblelog.js"></script>
+
+   
+
+<!--
+	Theme: Field Notes (http://fieldnotestheme.tumblr.com)
+	Version: 4
+	Creator: Braden Schaeffer (http://manasto.tumblr.com)
+-->
+
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<title>&gt;Ryan A. Chapman | Linux System Call Table for x86_64</title>	
+	<meta name="description" content="Linux System Call Table for x86_64 Linux 3.19, x86_64 Note: 64-bit x86 uses syscall instead of interrupt 0x80. The result value will be in %rax To find the implementation of a system call, grep the...">	
+    <style type="text/css">figure {margin: 0;}</style>
+<link rel="stylesheet" href="%3ERyan%20A.%20Chapman%20%7C%20Linux%20System%20Call%20Table%20for%20x86_64_pliki/monospace821-stylesheet.css">
+	<link rel="shortcut icon" href="http://assets.tumblr.com/images/default_avatar_128.png">
+	<link rel="alternate" type="application/rss+xml" title="&gt;Ryan A. Chapman" href="http://blog.rchapman.org/rss">
+	
+	<!-- iPhone Meta Data -->
+	<meta name="viewport" content="width=500, user-scalable=yes">
+	<link rel="apple-touch-icon" href="http://assets.tumblr.com/images/default_avatar_96.png">
+	
+	<!-- Custom Tumblr Theme Data -->
+	<meta name="color:Background" content="#683b20">
+	<meta name="color:Text" content="#000000">
+	<meta name="color:Links" content="#FFFFFF">
+	<meta name="font:Body" content="Optima, Futura, Georgia, Helvetica, Arial, serif">
+	<meta name="image:Background" content="http://static.tumblr.com/h3aw40n/KGtkopm5f/background.jpg">
+	<meta name="if:Display Twitter Updates" content="1">
+	<meta name="if:Display Following" content="1">
+	<meta name="if:Display Custom Links" content="0">
+	<meta name="text:Disqus Shortname" content="">
+	<meta name="text:Flickr ID" content="">
+	<meta name="text:Link Title 1" content="">
+	<meta name="text:Link URL 1" content="">
+	<meta name="text:Link Title 2" content="">
+	<meta name="text:Link URL 2" content="">
+	<meta name="text:Link Title 3" content="">
+	<meta name="text:Link URL 3" content="">
+	<meta name="text:Link Title 4" content="">
+	<meta name="text:Link URL 4" content="">
+	<meta name="text:Link Title 5" content="">
+	<meta name="text:Link URL 5" content="">
+
+	<!-- Stylesheets -->
+	<style type="text/css">
+	 /* <---- Overall Properties ----> */
+        * {
+        	margin: 0px;
+        	padding: 0px;
+        	-moz-outline-style: none;
+        	outline: none;
+        	}
+        body {
+            background:  #683b20 url(http://static.tumblr.com/h3aw40n/KGtkopm5f/background.jpg) top left fixed;
+        	/* font-family: Futura, Georgia, Helvetica, Arial, serif; */
+            font: 13px "Optima", "Futura", "Georgia", "Helvetica", "Arial", "serif";
+            
+        	font-size: 13px; 
+        	color: #000000;
+        	}
+        #container {
+        	width: 700px;
+        	margin: 0px auto;
+        	padding: 0px 15px;
+        	}
+        h1, h2, h3, h4, h5, h6 {
+        	font-weight: normal;
+        	}
+        a {
+        	text-decoration: none;
+        	color: #FFFFFF;
+        	} 
+        a:hover {
+        	text-decoration: underline;
+        	}
+        /* <---- Firefox Image Border Fix ----> */
+        a img, img {
+        	border: none;
+        	}
+        /* <---- Header ----> */
+        #header {
+        	text-transform: uppercase;
+        	margin: 25px 0px 60px 0px;
+        	padding: 0px 0px 2px 0px;
+        	}
+        #header a {
+        	color: #000000;
+        	}
+        #header h1 {
+        	margin: 0px 0px 0px -2px;
+        	}
+        #header a:hover {
+        	text-decoration: none;
+        	color: #FFFFFF;
+        	}
+        /* <---- Top Bar Properties ----> */
+        #upper {
+        	font-size: 1em;
+        	padding: 0px 0px 0px 0px;
+        	border-bottom: 2px #000000 solid;
+        	}
+        #upper div {
+        	border-top: 1px #000000 dashed;
+        	}
+        #upper #about_container {
+        	border-top: 2px #000000 solid;
+        	}
+        /* <---- Main Nav & Extra Links Properties ----> */
+        .nav ol, nav ul {
+        	list-style-position: inside;
+        	padding: 2px 0px 0px 0px;
+        	clear: left;
+        	}
+        .nav ol {
+        	list-style-type: decimal-leading-zero;
+        	}
+        .nav ul {
+        	list-style-type: circle;
+        	}
+        .nav li {
+        	float: left;
+        	margin: 0px 10px 2px 0px;
+        	}
+        /* <---- About Properties ----> */
+        a#about {
+        	cursor: pointer;
+        	}
+        #about_container {
+        	display: none;
+        	font-size: 1em;
+        	text-transform: none;
+        	padding: 10px 0px;
+        	}
+        #about_container a {
+        	color: #FFFFFF;
+        	}
+        #about_container a:hover {
+        	text-decoration: underline;
+        	}
+        p.avatar {
+        	float: left;
+        	margin: 0px 10px 5px 0px;
+        	}
+        p.avatar img {
+        	width: 90px;
+        	}
+        /* <---- Search Properties ----> */
+        #search {
+        	margin: 0 0 20px 0;
+        	padding: 0 0 15px 0;
+        	text-transform: uppercase;
+        	}
+        #search h2{
+        	font-size: 2em;
+        	text-align: center;
+        	}
+        /* <---- Post Properties ----> */
+        .posts {
+        	margin: 0px 0px 40px 0px;
+        	padding: 0px 0px 40px 0px;
+        	border-bottom: 2px #FFFFFF solid;
+        	list-style-type: none;
+        	}
+        .posts:last-child {
+        	border-bottom: none;
+        	}
+        .posts h1, .posts h2, .posts ul, .posts p, .posts p, .posts ol, .player, .posts pre {
+        	margin-bottom: 10px;
+        	}
+        .posts h1 {
+        	font-size: 2.25em;
+        	}
+        .posts h2 {
+        	font-size: 1.5em;
+        	}
+        .posts ol {
+        	list-style-type: decimal-leading-zero;
+        	}
+        .posts ul {
+        	list-style-type: disc;
+        	}
+        .posts ol ul, .posts ul ul {
+        	list-style-type: circle;
+        	}
+        .posts ol ol, .posts ul ol {
+        	list-style-type: decimal;
+        	}
+        .posts ol ul, .posts ol ol, .posts ul ul, .posts ul ol {
+        	margin: 10px 0px 10px 20px;
+        	}
+        .posts ol, .posts ul {
+        	margin: 10px 0px 10px 30px;
+        	}
+        .posts li {
+        	margin-bottom: 5px;
+        	}
+        .caption {
+        	font-size: 14px;
+        	}
+        .posts img, .posts object {
+        	max-width: 700px;
+        	margin: 10px 0px;
+        	}
+        p.object {
+        	text-align: center;
+        	}
+        .posts blockquote {
+        	margin: 10px 0px 10px 15px;
+        	padding-left: 15px;
+        	border-left: 1px #FFFFFF dashed;
+        	}
+		.caption img {
+		    max-width: 700px;
+			}
+		
+		.caption blockquote img {
+		    max-width: 150px;
+			}
+        .posts blockquote blockquote {
+        	margin-left: 5px;
+        	}
+        .posts code {
+        	background: #333;
+        	padding: 1px 2px;
+        	color: #FFFFFF;
+        	font: 12px 'Monospac821BTRoman';
+        	}
+        .posts pre {
+        	overflow: auto;
+        	background: #333;
+        	font: 12px 'Monospac821BTRoman';
+        	padding: 5px;
+        	color: #FFFFFF;
+        	margin: 15px 0px;
+        	}
+        .posts pre p {
+        	margin-bottom: 0px;
+        	}
+        /* <---- Quote Post Properties ----> */
+        h1.long {
+        	font-size: 1.5em;
+        	}
+        h1.short:before, h1.medium:before, h1.long:before, h1.short:after, h1.medium:after, h1.long:after {
+        	content: "''";
+        	}
+        /* <---- Link Post Properties ----> */
+        a.link {
+        	padding: 0px 2px;
+        	background: #000000;
+        	}
+        /* <---- Audio Post Properties ----> */
+        .extAudio {
+        	width: 90px;
+        	float: right;
+        	clear: right;
+        	text-align: right;
+        	text-transform: uppercase;
+        	font-size: 11px;
+        	}
+        /* <---- Chat Post Properties ----> */
+        .label, .line {
+        	padding: 2px;
+        	float: left;
+        	clear: left;
+        	}
+        .label {
+        	background: #000000;
+        	color: #FFFFFF;
+        	}
+        .line {
+        	background: #FFFFFF;
+        	color: #000000;
+        	}
+        /* <---- Post Info Properties ----> */
+        .post_info {
+        	margin: 25px 0px 0px 0px;
+        	text-align: right;
+        	font-size: 12px;
+        	}
+        /* Tags */
+        .tags a:after {
+        	content: ",";
+        	}
+        .tags a:last-child:after {
+        	content: "";
+        	}
+        /* <---- Page/Post Nav Properties ----> */
+        #post_nav, #perma_nav {
+        	width: 700px;
+        	font-size: 14px;
+        	text-transform: uppercase;
+        	}
+        #perma_nav {
+        	margin: -20px 0px 20px 0px;
+        	}
+        #post_nav {
+        	margin: 0px 0px 70px 0px;
+        	padding: 5px 0px 0px 0px;
+        	}
+        .older {
+        	float: right;
+        	}
+        .newer {
+        	float: left;
+        	margin-right: 10px;
+        	}
+        .pages {
+        	width: 200px;
+        	margin: 0px 150px;
+        	text-align: center;
+        	}
+        /* <---- Notes Properties ----> */
+        #notes ol {
+        	list-style-type: none;
+        	margin: 30px 0px 0px 0px;
+        	font-size: 12px;
+        	}
+        #notes ol li {
+        	padding: 7px 0px;
+        	border-top: 1px #FFFFFF dotted;
+        	}
+        #notes ol li:first-child {
+        	border-top: 1px #FFFFFF solid;
+        	}
+        #notes ol li img {
+        	display: none;
+        	}
+        /* <---- Footer Properties ----> */
+        #footer {
+        	margin: 0px 0px 150px 0px;
+        	}
+        #footer div {
+        	clear: both;
+        	border-top: 1px #000000 dashed;
+        	}
+        #footer div:first-child {
+        	border-top: 2px #000000 solid;
+        	}
+        /* <---- Following Properties ----> */
+        .following {
+        	padding: 5px 3px;
+        	}
+        li.follows {
+        	height: 25px;
+        	width: 25px;
+        	list-style-type: none;
+        	float: left;
+        	margin: 2px;
+        	}
+        .following img {
+        	width: 25px;
+        	} 
+        /* <---- Credits Properties ----> */
+        #credits {
+        	text-align: center;
+        	font-size: 12px;
+        	padding: 5px 0px 0px 0px;
+        	clear: left;
+        	}
+        /* <---- Flickr Badge Properties ---->*/
+        #flickr {
+        	padding: 5px 0 0 0;
+        	background: no-repeat 0 5px;
+        	text-indent: 25px;
+        	text-transform: none;
+        	min-height: 15px;
+        	}
+        #flickr #photos {
+        	border: none;
+        	}
+        #largeImage {
+        	position: absolute;
+        	border: 3px solid #FFFFFF;
+        	}
+        #photos {
+        	margin-left: 16px;
+        	}	
+        #photos img {
+        	float: left;
+        	padding: 0px 0px 5px 10px;
+        	width: 38px;
+        	height: 38px;
+        	} 
+        /* <---- Twitter Badge Properties ----> */
+        #twitter_div {
+        	background: no-repeat 0 6px;
+        	clear: left;
+        	min-height: 27px;
+        	}
+        #twitter_div a {
+        	color: #FFFFFF;
+        	}
+        #twitter_div a:hover {
+        	text-decoration: underline;
+        	}
+        #tweets {
+        	list-style-type: none;
+        	font-size: 13px;
+        	padding: 5px 0px;
+        	margin: 0 0 0 25px;
+        	text-transform: none;
+        	}
+        /* <---- Custom Links Properties ----> */
+        .links {
+        	padding: 2px 0px 0px 0px;
+        	}
+        .links ol, .links ul {
+        	list-style-position: inside;
+        	clear: left;
+        	}
+        .links ol {
+        	list-style-type: decimal-leading-zero;
+        	}
+        .links ul {
+        	list-style-type: circle;
+        	}
+        .links li {
+        	text-transform: uppercase;
+        	float: left;
+        	margin: 0px 10px 2px 0px;
+        	}
+        /*
+
+        The style below is very important to
+        keeping this theme looking very clean.
+
+        I use this style all over this theme
+        to correct floats, of which there 
+        are a few.
+
+        Unless you know what you are doing,
+        do not mess with this style. This 
+        law is given under penalty of death.
+
+        */
+        div#clearfix, li#clearfix {
+        	clear: both;
+        	list-style-type: none;
+        	border: none;
+        }
+        
+		/* Blog Title Font Size */
+		#header h1 { font-size: 3em; }
+		
+		/* Background Color & Image */
+		body { background:  #683b20 url('http://static.tumblr.com/h3aw40n/KGtkopm5f/background.jpg'); }
+		
+		/* Twitter Icon (16x16) */
+		#twitter_div { background-image: url(http://static.tumblr.com/h3aw40n/giskhqyi3/twitter.png); }
+		
+		/* Flickr Icon (16x16) */
+		#flickr { background-image: url(http://static.tumblr.com/h3aw40n/BRMkhqyh4/flickr.png); }
+		
+		.tag:before, .search_query:before { content:'“'; }
+		.tag:after, .search_query:after { content:'”'; }
+		
+		
+	</style>
+	
+	<!-- Scripts -->
+	<script type="text/javascript" src="%3ERyan%20A.%20Chapman%20%7C%20Linux%20System%20Call%20Table%20for%20x86_64_pliki/jquery.js"></script>
+	<script type="text/javascript" src="%3ERyan%20A.%20Chapman%20%7C%20Linux%20System%20Call%20Table%20for%20x86_64_pliki/functions.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {	
+		//Set this variable (x) to change the initial display
+		//of the number of people you follow before hovering.
+		//Each row is a multiple of 17.	
+			var x = 34;	
+			hideFollows(x);
+			
+		});
+	</script>
+	
+	<!-- Javascript Disabled Styles -->
+	<noscript><style type="text/css">
+		li#search { display: none; }
+	</style></noscript>
+	
+<link rel="alternate" href="android-app://com.tumblr/tumblr/x-callback-url/blog?blogName=ryanchapman%26postID=36801038863">
+<link rel="alternate" type="application/json+oembed" href="http://www.tumblr.com/oembed/1.0?url=http://blog.rchapman.org/post/36801038863/linux-system-call-table-for-x86-64" title="Linux System Call Table for x86_64
+Linux 3.19, x86_64
+Note: 64-bit x86 uses syscall instead of interrupt 0x80. The result value will be in %rax
+To find the implementation of a system call, grep the kernel tree for SYSCALL_DEFINE.\?(syscall,
+For...">
+<script src="%3ERyan%20A.%20Chapman%20%7C%20Linux%20System%20Call%20Table%20for%20x86_64_pliki/tumblelog.js"></script><style id="tumblr_teaser_follow_css" type="text/css">
+#tumblr_teaser_follow {
+display: block;
+opacity: 1;
+visibility: hidden;
+position: fixed;
+bottom: 0px;
+right: 0px;
+width: 1px;
+height: 1px;
+z-index: 2147483647;
+}
+#tumblr_teaser_follow.open {
+visibility: visible;
+width: 310px;
+height: 106px;
+}
+</style><style id="tumblr_iframe_css" type="text/css">
+.tumblr_controls {
+position: absolute;
+top: 0px;
+right: 0px;
+display: block;
+opacity: 1;
+width: 1px;
+height: 1px;
+z-index: 2147483647;
+visibility: hidden;
+pointer-events: none;
+}
+.tumblr_controls.visible {
+visibility: visible;
+pointer-events: all;
+}
+.tumblr_controls.sticky {
+position: fixed;
+}
+.tumblr_controls.transition {
+-webkit-transition: top 0.1s ease;
+-moz-transition: top 0.1s ease;
+-ms-transition: top 0.1s ease;
+-o-transition: top 0.1s ease;
+transition: top 0.1s ease;
+}
+iframe#tumblr_controls.tumblr_controls.sticky.transition {
+-webkit-animation: tumblr_controls_fade_in 0.3s 0.2s linear 1 both;
+-moz-animation: tumblr_controls_fade_in 0.3s 0.2s linear 1 both;
+-ms-animation: tumblr_controls_fade_in 0.3s 0.2s linear 1 both;
+-o-animation: tumblr_controls_fade_in 0.3s 0.2s linear 1 both;
+animation: tumblr_controls_fade_in 0.3s 0.2s linear 1 both;
+top: 0 !important;
+}
+.tumblr_controls.sticky.transition {
+-webkit-animation: tumblr_controls_fade_in 0.3s 0.2s linear 1 both;
+-moz-animation: tumblr_controls_fade_in 0.3s 0.2s linear 1 both;
+-ms-animation: tumblr_controls_fade_in 0.3s 0.2s linear 1 both;
+-o-animation: tumblr_controls_fade_in 0.3s 0.2s linear 1 both;
+animation: tumblr_controls_fade_in 0.3s 0.2s linear 1 both;
+top: 0 !important;
+}
+.tumblr_controls.flash_fix {
+visibility: hidden !important;
+}
+#tumblr_controls {
+width: 347px;
+height: 36px;
+}
+@-webkit-keyframes tumblr_controls_fade_in {
+0% {
+opacity: 0;
+}
+100% {
+opacity: 1;
+}
+}
+@-moz-keyframes tumblr_controls_fade_in {
+0% {
+opacity: 0;
+}
+100% {
+opacity: 1;
+}
+}
+@-ms-keyframes tumblr_controls_fade_in {
+0% {
+opacity: 0;
+}
+100% {
+opacity: 1;
+}
+}
+@-o-keyframes tumblr_controls_fade_in {
+0% {
+opacity: 0;
+}
+100% {
+opacity: 1;
+}
+}
+@keyframes tumblr_controls_fade_in {
+0% {
+opacity: 0;
+}
+100% {
+opacity: 1;
+}
+}
+</style>
+<link rel="stylesheet" type="text/css" href="%3ERyan%20A.%20Chapman%20%7C%20Linux%20System%20Call%20Table%20for%20x86_64_pliki/stylesheet.css">
+<meta http-equiv="x-dns-prefetch-control" content="off">
+<meta name="keywords" content="64 bit,syscall,x86_64,3.19,Linux">
+
+<!-- BEGIN TUMBLR FACEBOOK OPENGRAPH TAGS --><!-- If you'd like to specify your own Open Graph tags, define the og:url and og:title tags in your theme's HTML. --><!-- Read more: http://ogp.me/ --><meta property="fb:app_id" content="48119224995"><meta property="og:site_name" content=""><meta property="og:title" content="Linux System Call Table for x86_64"><meta property="og:url" content="http://blog.rchapman.org/post/36801038863/linux-system-call-table-for-x86-64"><meta property="og:description" content="Linux 3.19, x86_64
+Note: 64-bit x86 uses syscall instead of interrupt 0x80. The result value will be in %rax
+To find the implementation of a system call, grep the kernel tree for..."><meta property="og:determiner" content="a"><meta property="og:type" content="tumblr-feed:entry"><meta property="og:image" content="http://assets.tumblr.com/images/og/text_200.png"><meta property="al:ios:url" content="tumblr://x-callback-url/blog?blogName=ryanchapman&amp;postID=36801038863"><meta property="al:ios:app_name" content="Tumblr"><meta property="al:ios:app_store_id" content="305343404"><meta property="al:android:url" content="tumblr://x-callback-url/blog?blogName=ryanchapman&amp;postID=36801038863"><meta property="al:android:app_name" content="Tumblr"><meta property="al:android:package" content="com.tumblr"><!-- END TUMBLR FACEBOOK OPENGRAPH TAGS -->
+
+
+<!-- TWITTER TAGS --><meta charset="utf-8"><meta name="twitter:card" content="summary"><meta name="twitter:description" content="Linux 3.19, x86_64  Note: 64-bit x86 uses syscall instead of interrupt 0x80. The result value will be in %rax
+
+ To find the implementation of a system call, grep the kernel tree for SYSCALL_DEFINE.\?(syscall, 
+For example, to find the read system call:
+
+illusion:/usr/src/linux-source-3.19$ grep -rA3 'SYSCALL_DEFINE.\?(read,' *
+fs/read_write.c:SYSCALL_DEFINE3(read, unsigned int, fd, char __user *, buf, size_t, count)
+fs/read_write.c-{
+fs/read_write.c-        struct file *file;
+fs/read_write.c-        ssize_t ret = -EBADF;
+
+The results show that the implementation is in fs/read_write.c and that it takes 3 arguments (thus SYSCALL_DEFINE3).
+
+ Linux Cross Reference is another good tool for finding information about system calls.
+
+ By the way, the system call numbers are different for 32-bit x86. A system call table for i386 (32-bit) can be found at http://docs.cs.up.ac.za/programming/asm/derick_tut/syscalls.html
+
+ Information on the order of registers can be found on page 124 of the x86_64 ABI paper at http://www.x86-64.org/documentation/abi.pdf
+
+%raxSystem call%rdi%rsi%rdx%r10%r8%r90sys_readunsigned int fdchar *bufsize_t count1sys_writeunsigned int fdconst char *bufsize_t count2sys_openconst char *filenameint flagsint mode3sys_closeunsigned int fd4sys_statconst char *filenamestruct stat *statbuf5sys_fstatunsigned int fdstruct stat *statbuf6sys_lstatfconst char *filenamestruct stat *statbuf7sys_pollstruct poll_fd *ufdsunsigned int nfdslong timeout_msecs8sys_lseekunsigned int fdoff_t offsetunsigned int origin9sys_mmapunsigned long addrunsigned long lenunsigned long protunsigned long flagsunsigned long fdunsigned long off10sys_mprotectunsigned long startsize_t lenunsigned long prot11sys_munmapunsigned long addrsize_t len12sys_brkunsigned long brk13sys_rt_sigactionint sigconst struct sigaction *actstruct sigaction *oactsize_t sigsetsize14sys_rt_sigprocmaskint howsigset_t *nsetsigset_t *osetsize_t sigsetsize15sys_rt_sigreturnunsigned long __unused16sys_ioctlunsigned int fdunsigned int cmdunsigned long arg17sys_pread64unsigned long fdchar *bufsize_t countloff_t pos18sys_pwrite64unsigned int fdconst char *bufsize_t countloff_t pos19sys_readvunsigned long fdconst struct iovec *vecunsigned long vlen20sys_writevunsigned long fdconst struct iovec *vecunsigned long vlen21sys_accessconst char *filenameint mode22sys_pipeint *filedes23sys_selectint nfd_set *inpfd_set *outpfd_set*expstruct timeval *tvp24sys_sched_yield25sys_mremapunsigned long addrunsigned long old_lenunsigned long new_lenunsigned long flagsunsigned long new_addr26sys_msyncunsigned long startsize_t lenint flags27sys_mincoreunsigned long startsize_t lenunsigned char *vec28sys_madviseunsigned long startsize_t len_inint behavior29sys_shmgetkey_t keysize_t sizeint shmflg30sys_shmatint shmidchar *shmaddrint shmflg31sys_shmctlint shmidint cmdstruct shmid_ds *buf32sys_dupunsigned int fildes33sys_dup2unsigned int oldfdunsigned int newfd34sys_pause35sys_nanosleepstruct timespec *rqtpstruct timespec *rmtp36sys_getitimerint whichstruct itimerval *value37sys_alarmunsigned int seconds38sys_setitimerint whichstruct itimerval *valuestruct itimerval *ovalue39sys_getpid40sys_sendfileint out_fdint in_fdoff_t *offsetsize_t count41sys_socketint familyint typeint protocol42sys_connectint fdstruct sockaddr *uservaddrint addrlen43sys_acceptint fdstruct sockaddr *upeer_sockaddrint *upeer_addrlen44sys_sendtoint fdvoid *buffsize_t lenunsigned flagsstruct sockaddr *addrint addr_len45sys_recvfromint fdvoid *ubufsize_t sizeunsigned flagsstruct sockaddr *addrint *addr_len46sys_sendmsgint fdstruct msghdr *msgunsigned flags47sys_recvmsgint fdstruct msghdr *msgunsigned int flags48sys_shutdownint fdint how49sys_bindint fdstruct sokaddr *umyaddrint addrlen50sys_listenint fdint backlog51sys_getsocknameint fdstruct sockaddr *usockaddrint *usockaddr_len52sys_getpeernameint fdstruct sockaddr *usockaddrint *usockaddr_len53sys_socketpairint familyint typeint protocolint *usockvec54sys_setsockoptint fdint levelint optnamechar *optvalint optlen55sys_getsockoptint fdint levelint optnamechar *optvalint *optlen56sys_cloneunsigned long clone_flagsunsigned long newspvoid *parent_tidvoid *child_tid57sys_fork58sys_vfork59sys_execveconst char *filenameconst char *const argv[]const char *const envp[]60sys_exitint error_code61sys_wait4pid_t upidint *stat_addrint optionsstruct rusage *ru62sys_killpid_t pidint sig63sys_unamestruct old_utsname *name64sys_semgetkey_t keyint nsemsint semflg65sys_semopint semidstruct sembuf *tsopsunsigned nsops66sys_semctlint semidint semnumint cmdunion semun arg67sys_shmdtchar *shmaddr68sys_msggetkey_t keyint msgflg69sys_msgsndint msqidstruct msgbuf *msgpsize_t msgszint msgflg70sys_msgrcvint msqidstruct msgbuf *msgpsize_t msgszlong msgtypint msgflg71sys_msgctlint msqidint cmdstruct msqid_ds *buf72sys_fcntlunsigned int fdunsigned int cmdunsigned long arg73sys_flockunsigned int fdunsigned int cmd74sys_fsyncunsigned int fd75sys_fdatasyncunsigned int fd76sys_truncateconst char *pathlong length77sys_ftruncateunsigned int fdunsigned long length78sys_getdentsunsigned int fdstruct linux_dirent *direntunsigned int count79sys_getcwdchar *bufunsigned long size80sys_chdirconst char *filename81sys_fchdirunsigned int fd82sys_renameconst char *oldnameconst char *newname83sys_mkdirconst char *pathnameint mode84sys_rmdirconst char *pathname85sys_creatconst char *pathnameint mode86sys_linkconst char *oldnameconst char *newname87sys_unlinkconst char *pathname88sys_symlinkconst char *oldnameconst char *newname89sys_readlinkconst char *pathchar *bufint bufsiz90sys_chmodconst char *filenamemode_t mode91sys_fchmodunsigned int fdmode_t mode92sys_chownconst char *filenameuid_t usergit_t group93sys_fchownunsigned int fduid_t usergit_t group94sys_lchownconst char *filenameuid_t usergit_t group95sys_umaskint mask96sys_gettimeofdaystruct timeval *tvstruct timezone *tz97sys_getrlimitunsigned int resourcestruct rlimit *rlim98sys_getrusageint whostruct rusage *ru99sys_sysinfostruct sysinfo *info100sys_timesstruct sysinfo *info101sys_ptracelong requestlong pidunsigned long addrunsigned long data102sys_getuid103sys_syslogint typechar *bufint len104sys_getgid105sys_setuiduid_t uid106sys_setgidgit_t gid107sys_geteuid108sys_getegid109sys_setpgidpid_t pidpid_t pgid110sys_getppid111sys_getpgrp112sys_setsid113sys_setreuiduid_t ruiduid_t euid114sys_setregidgit_t rgidgid_t egid115sys_getgroupsint gidsetsizegid_t *grouplist116sys_setgroupsint gidsetsizegid_t *grouplist117sys_setresuiduid_t *ruiduid_t *euiduid_t *suid118sys_getresuiduid_t *ruiduid_t *euiduid_t *suid119sys_setresgidgid_t rgidgid_t egidgid_t sgid120sys_getresgidgit_t *rgidgit_t *egidgit_t *sgid121sys_getpgidpid_t pid122sys_setfsuiduid_t uid123sys_setfsgidgid_t gid124sys_getsidpid_t pid125sys_capgetcap_user_header_t headercap_user_data_t dataptr126sys_capsetcap_user_header_t headerconst cap_user_data_t data127sys_rt_sigpendingsigset_t *setsize_t sigsetsize128sys_rt_sigtimedwaitconst sigset_t *uthesesiginfo_t *uinfoconst struct timespec *utssize_t sigsetsize129sys_rt_sigqueueinfopid_t pidint sigsiginfo_t *uinfo130sys_rt_sigsuspendsigset_t *unewsetsize_t sigsetsize131sys_sigaltstackconst stack_t *ussstack_t *uoss132sys_utimechar *filenamestruct utimbuf *times133sys_mknodconst char *filenameint modeunsigned dev134sys_uselibNOT IMPLEMENTED135sys_personalityunsigned int personality136sys_ustatunsigned devstruct ustat *ubuf137sys_statfsconst char *pathnamestruct statfs *buf138sys_fstatfsunsigned int fdstruct statfs *buf139sys_sysfsint optionunsigned long arg1unsigned long arg2140sys_getpriorityint whichint who141sys_setpriorityint whichint whoint niceval142sys_sched_setparampid_t pidstruct sched_param *param143sys_sched_getparampid_t pidstruct sched_param *param144sys_sched_setschedulerpid_t pidint policystruct sched_param *param145sys_sched_getschedulerpid_t pid146sys_sched_get_priority_maxint policy147sys_sched_get_priority_minint policy148sys_sched_rr_get_intervalpid_t pidstruct timespec *interval149sys_mlockunsigned long startsize_t len150sys_munlockunsigned long startsize_t len151sys_mlockallint flags152sys_munlockall153sys_vhangup154sys_modify_ldtint funcvoid *ptrunsigned long bytecount155sys_pivot_rootconst char *new_rootconst char *put_old156sys__sysctlstruct __sysctl_args *args157sys_prctlint optionunsigned long arg2unsigned long arg3unsigned long arg4unsigned long arg5158sys_arch_prctlstruct task_struct *taskint codeunsigned long *addr159sys_adjtimexstruct timex *txc_p160sys_setrlimitunsigned int resourcestruct rlimit *rlim161sys_chrootconst char *filename162sys_sync163sys_acctconst char *name164sys_settimeofdaystruct timeval *tvstruct timezone *tz165sys_mountchar *dev_namechar *dir_namechar *typeunsigned long flagsvoid *data166sys_umount2const char *targetint flags167sys_swaponconst char *specialfileint swap_flags168sys_swapoffconst char *specialfile169sys_rebootint magic1int magic2unsigned int cmdvoid *arg170sys_sethostnamechar *nameint len171sys_setdomainnamechar *nameint len172sys_ioplunsigned int levelstruct pt_regs *regs173sys_iopermunsigned long fromunsigned long numint turn_on174sys_create_moduleREMOVED IN Linux 2.6175sys_init_modulevoid *umodunsigned long lenconst char *uargs176sys_delete_moduleconst chat *name_userunsigned int flags177sys_get_kernel_symsREMOVED IN Linux 2.6178sys_query_moduleREMOVED IN Linux 2.6179sys_quotactlunsigned int cmdconst char *specialqid_t idvoid *addr180sys_nfsservctlNOT IMPLEMENTED181sys_getpmsgNOT IMPLEMENTED182sys_putpmsgNOT IMPLEMENTED183sys_afs_syscallNOT IMPLEMENTED184sys_tuxcallNOT IMPLEMENTED185sys_securityNOT IMPLEMENTED186sys_gettid187sys_readaheadint fdloff_t offsetsize_t count188sys_setxattrconst char *pathnameconst char *nameconst void *valuesize_t sizeint flags189sys_lsetxattrconst char *pathnameconst char *nameconst void *valuesize_t sizeint flags190sys_fsetxattrint fdconst char *nameconst void *valuesize_t sizeint flags191sys_getxattrconst char *pathnameconst char *namevoid *valuesize_t size192sys_lgetxattrconst char *pathnameconst char *namevoid *valuesize_t size193sys_fgetxattrint fdconst har *namevoid *valuesize_t size194sys_listxattrconst char *pathnamechar *listsize_t size195sys_llistxattrconst char *pathnamechar *listsize_t size196sys_flistxattrint fdchar *listsize_t size197sys_removexattrconst char *pathnameconst char *name198sys_lremovexattrconst char *pathnameconst char *name199sys_fremovexattrint fdconst char *name200sys_tkillpid_t piding sig201sys_timetime_t *tloc202sys_futexu32 *uaddrint opu32 valstruct timespec *utimeu32 *uaddr2u32 val3203sys_sched_setaffinitypid_t pidunsigned int lenunsigned long *user_mask_ptr204sys_sched_getaffinitypid_t pidunsigned int lenunsigned long *user_mask_ptr205sys_set_thread_areaNOT IMPLEMENTED. Use arch_prctl206sys_io_setupunsigned nr_eventsaio_context_t *ctxp207sys_io_destroyaio_context_t ctx208sys_io_geteventsaio_context_t ctx_idlong min_nrlong nrstruct io_event *events209sys_io_submitaio_context_t ctx_idlong nrstruct iocb **iocbpp210sys_io_cancelaio_context_t ctx_idstruct iocb *iocbstruct io_event *result211sys_get_thread_areaNOT IMPLEMENTED. Use arch_prctl212sys_lookup_dcookieu64 cookie64long buflong len213sys_epoll_createint size214sys_epoll_ctl_oldNOT IMPLEMENTED215sys_epoll_wait_oldNOT IMPLEMENTED216sys_remap_file_pagesunsigned long startunsigned long sizeunsigned long protunsigned long pgoffunsigned long flags217sys_getdents64unsigned int fdstruct linux_dirent64 *direntunsigned int count218sys_set_tid_addressint *tidptr219sys_restart_syscall220sys_semtimedopint semidstruct sembuf *tsopsunsigned nsopsconst struct timespec *timeout221sys_fadvise64int fdloff_t offsetsize_t lenint advice222sys_timer_createconst clockid_t which_clockstruct sigevent *timer_event_spectimer_t *created_timer_id223sys_timer_settimetimer_t timer_idint flagsconst struct itimerspec *new_settingstruct itimerspec *old_setting224sys_timer_gettimetimer_t timer_idstruct itimerspec *setting225sys_timer_getoverruntimer_t timer_id226sys_timer_deletetimer_t timer_id227sys_clock_settimeconst clockid_t which_clockconst struct timespec *tp228sys_clock_gettimeconst clockid_t which_clockstruct timespec *tp229sys_clock_getresconst clockid_t which_clockstruct timespec *tp230sys_clock_nanosleepconst clockid_t which_clockint flagsconst struct timespec *rqtpstruct timespec *rmtp231sys_exit_groupint error_code232sys_epoll_waitint epfdstruct epoll_event *eventsint maxeventsint timeout233sys_epoll_ctlint epfdint opint fdstruct epoll_event *event234sys_tgkillpid_t tgidpid_t pidint sig235sys_utimeschar *filenamestruct timeval *utimes236sys_vserverNOT IMPLEMENTED237sys_mbindunsigned long startunsigned long lenunsigned long modeunsigned long *nmaskunsigned long maxnodeunsigned flags238sys_set_mempolicyint modeunsigned long *nmaskunsigned long maxnode239sys_get_mempolicyint *policyunsigned long *nmaskunsigned long maxnodeunsigned long addrunsigned long flags240sys_mq_openconst char *u_nameint oflagmode_t modestruct mq_attr *u_attr241sys_mq_unlinkconst char *u_name242sys_mq_timedsendmqd_t mqdesconst char *u_msg_ptrsize_t msg_lenunsigned int msg_prioconst stuct timespec *u_abs_timeout243sys_mq_timedreceivemqd_t mqdeschar *u_msg_ptrsize_t msg_lenunsigned int *u_msg_prioconst struct timespec *u_abs_timeout244sys_mq_notifymqd_t mqdesconst struct sigevent *u_notification245sys_mq_getsetattrmqd_t mqdesconst struct mq_attr *u_mqstatstruct mq_attr *u_omqstat246sys_kexec_loadunsigned long entryunsigned long nr_segmentsstruct kexec_segment *segmentsunsigned long flags247sys_waitidint whichpid_t upidstruct siginfo *infopint optionsstruct rusage *ru248sys_add_keyconst char *_typeconst char *_descriptionconst void *_payloadsize_t plen249sys_request_keyconst char *_typeconst char *_descriptionconst char *_callout_infokey_serial_t destringid250sys_keyctlint optionunsigned long arg2unsigned long arg3unsigned long arg4unsigned long arg5251sys_ioprio_setint whichint whoint ioprio252sys_ioprio_getint whichint who253sys_inotify_init254sys_inotify_add_watchint fdconst char *pathnameu32 mask255sys_inotify_rm_watchint fd__s32 wd256sys_migrate_pagespid_t pidunsigned long maxnodeconst unsigned long *old_nodesconst unsigned long *new_nodes257sys_openatint dfdconst char *filenameint flagsint mode258sys_mkdiratint dfdconst char *pathnameint mode259sys_mknodatint dfdconst char *filenameint modeunsigned dev260sys_fchownatint dfdconst char *filenameuid_t usergid_t groupint flag261sys_futimesatint dfdconst char *filenamestruct timeval *utimes262sys_newfstatatint dfdconst char *filenamestruct stat *statbufint flag263sys_unlinkatint dfdconst char *pathnameint flag264sys_renameatint oldfdconst char *oldnameint newfdconst char *newname265sys_linkatint oldfdconst char *oldnameint newfdconst char *newnameint flags266sys_symlinkatconst char *oldnameint newfdconst char *newname267sys_readlinkatint dfdconst char *pathnamechar *bufint bufsiz268sys_fchmodatint dfdconst char *filenamemode_t mode269sys_faccessatint dfdconst char *filenameint mode270sys_pselect6int nfd_set *inpfd_set *outpfd_set *expstruct timespec *tspvoid *sig271sys_ppollstruct pollfd *ufdsunsigned int nfdsstruct timespec *tspconst sigset_t *sigmasksize_t sigsetsize272sys_unshareunsigned long unshare_flags273sys_set_robust_liststruct robust_list_head *headsize_t len274sys_get_robust_listint pidstruct robust_list_head **head_ptrsize_t *len_ptr275sys_spliceint fd_inloff_t *off_inint fd_outloff_t *off_outsize_t lenunsigned int flags276sys_teeint fdinint fdoutsize_t lenunsigned int flags277sys_sync_file_rangelong fdloff_t offsetloff_t byteslong flags278sys_vmspliceint fdconst struct iovec *iovunsigned long nr_segsunsigned int flags279sys_move_pagespid_t pidunsigned long nr_pagesconst void **pagesconst int *nodesint *statusint flags280sys_utimensatint dfdconst char *filenamestruct timespec *utimesint flags281sys_epoll_pwaitint epfdstruct epoll_event *eventsint maxeventsint timeoutconst sigset_t *sigmasksize_t sigsetsize282sys_signalfdint ufdsigset_t *user_masksize_t sizemask283sys_timerfd_createint clockidint flags284sys_eventfdunsigned int count285sys_fallocatelong fdlong modeloff_t offsetloff_t len286sys_timerfd_settimeint ufdint flagsconst struct itimerspec *utmrstruct itimerspec *otmr287sys_timerfd_gettimeint ufdstruct itimerspec *otmr288sys_accept4int fdstruct sockaddr *upeer_sockaddrint *upeer_addrlenint flags289sys_signalfd4int ufdsigset_t *user_masksize_t sizemaskint flags290sys_eventfd2unsigned int countint flags291sys_epoll_create1int flags292sys_dup3unsigned int oldfdunsigned int newfdint flags293sys_pipe2int *filedesint flags294sys_inotify_init1int flags295sys_preadvunsigned long fdconst struct iovec *vecunsigned long vlenunsigned long pos_lunsigned long pos_h296sys_pwritevunsigned long fdconst struct iovec *vecunsigned long vlenunsigned long pos_lunsigned long pos_h297sys_rt_tgsigqueueinfopid_t tgidpid_t pidint sigsiginfo_t *uinfo298sys_perf_event_openstruct perf_event_attr *attr_uptrpid_t pidint cpuint group_fdunsigned long flags299sys_recvmmsgint fdstruct msghdr *mmsgunsigned int vlenunsigned int flagsstruct timespec *timeout300sys_fanotify_initunsigned int flagsunsigned int event_f_flags301sys_fanotify_marklong fanotify_fdlong flags__u64 masklong dfdlong pathname302sys_prlimit64pid_t pidunsigned int resourceconst struct rlimit64 *new_rlimstruct rlimit64 *old_rlim303sys_name_to_handle_atint dfdconst char *namestruct file_handle *handleint *mnt_idint flag304sys_open_by_handle_atint dfdconst char *namestruct file_handle *handleint *mnt_idint flags305sys_clock_adjtimeclockid_t which_clockstruct timex *tx306sys_syncfsint fd307sys_sendmmsgint fdstruct mmsghdr *mmsgunsigned int vlenunsigned int flags308sys_setnsint fdint nstype309sys_getcpuunsigned *cpupunsigned *nodepstruct getcpu_cache *unused310sys_process_vm_readvpid_t pidconst struct iovec *lvecunsigned long liovcntconst struct iovec *rvecunsigned long riovcntunsigned long flags311sys_process_vm_writevpid_t pidconst struct iovec *lvecunsigned long liovcntconst struct iovcc *rvecunsigned long riovcntunsigned long flags312sys_kcmppid_t pid1pid_t pid2int typeunsigned long idx1unsigned long idx2313sys_finit_moduleint fdconst char __user *uargsint flags314sys_sched_setattrpid_t pidstruct sched_attr __user *attrunsigned int flags315sys_sched_getattrpid_t pidstruct sched_attr __user *attrunsigned int sizeunsigned int flags316sys_renameat2int olddfdconst char __user *oldnameint newdfd, const char __user *newnameunsigned int flags317sys_seccompunsigned int opunsigned int flagsconst char __user *uargs318sys_getrandomchar __user *bufsize_t countunsigned int flags319sys_memfd_createconst char __user *uname_ptrunsigned 
+int flags320sys_kexec_file_loadint kernel_fdint initrd_fdunsigned long cmdline_lenconst char __user *cmdline_ptrunsigned long flags321sys_bpfint cmdunion bpf_attr *attrunsigned int size322stub_execveatint dfdconst char __user *filenameconst char __user *const __user *argvconst char __user *const __user *envpint flags"><meta name="twitter:title" content="Linux System Call Table for x86_64"><meta name="twitter:url" content="http://blog.rchapman.org/post/36801038863/linux-system-call-table-for-x86-64"><meta name="twitter:site" content="tumblr"><meta name="twitter:creator" content="RyanChapman"><meta name="twitter:app:name:iphone" content="Tumblr"><meta name="twitter:app:name:ipad" content="Tumblr"><meta name="twitter:app:name:googleplay" content="Tumblr"><meta name="twitter:app:id:iphone" content="305343404"><meta name="twitter:app:id:ipad" content="305343404"><meta name="twitter:app:id:googleplay" content="com.tumblr"><meta name="twitter:app:url:iphone" content="tumblr://x-callback-url/blog?blogName=ryanchapman&amp;postID=36801038863&amp;referrer=twitter-cards"><meta name="twitter:app:url:ipad" content="tumblr://x-callback-url/blog?blogName=ryanchapman&amp;postID=36801038863&amp;referrer=twitter-cards"><meta name="twitter:app:url:googleplay" content="tumblr://x-callback-url/blog?blogName=ryanchapman&amp;postID=36801038863&amp;referrer=twitter-cards">
+
+<style>@-webkit-keyframes poprgjmzdtragyldynxqvkxgmrykcqqmjbrffayxm {50% {-webkit-transform:scale(1.2);}100% {-webkit-transform:scale(1);}}@keyframes poprgjmzdtragyldynxqvkxgmrykcqqmjbrffayxm {50% {-webkit-transform:scale(1.2);transform:scale(1.2);}100% {-webkit-transform:scale(1);transform:scale(1);}}#rgjmzdtragyldynxqvkxgmrykcqqmjbrffayxm{padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;position:static;border:solid 2px #fff !important;color:#fff !important;display:block !important;height:auto !important;margin:0 !important;opacity:0.9 !important;padding:7px 10px !important;position:fixed !important;visibility:visible !important;width:auto !important;z-index:2147483647 !important;-moz-border-radius:5px !important;border-radius:5px !important;-moz-box-shadow:0px 0px 20px #000 !important;box-shadow:0px 0px 20px #000 !important;}.rgjmzdtragyldynxqvkxgmrykcqqmjbrffayxm-blocked{padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;position:static;color:#AAA !important;display:inline !important;text-decoration:line-through !important;}#rgjmzdtragyldynxqvkxgmrykcqqmjbrffayxm br{display:block !important;padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;position:static;}#rgjmzdtragyldynxqvkxgmrykcqqmjbrffayxm span{background:transparent !important;padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;position:static;}#rgjmzdtragyldynxqvkxgmrykcqqmjbrffayxm div{padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;position:static;border:0 !important;margin:0 !important;padding:0 !important;width:auto !important;letter-spacing:normal !important;font:13px Arial,Helvetica !important;text-align:left !important;text-shadow:none !important;text-transform:none !important;word-spacing:normal !important;}#rgjmzdtragyldynxqvkxgmrykcqqmjbrffayxm a{padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;position:static;font-weight:normal !important;background:none !important;text-decoration:underline !important;color:#fff !important;}a#rgjmzdtragyldynxqvkxgmrykcqqmjbrffayxm-gear{padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;position:static;text-decoration:none !important;position:absolute !important;display:none !important;font-size:20px !important;width:20px !important;height:20px !important;line-height:20px !important;text-align:center !important;background-color:rgba(255,255,255,.8) !important;background-image:url(resource://firefox-at-ghostery-dot-com/ghostery/data/images/gear.svg) !important;background-size:16px 16px !important;background-position:center center !important;background-repeat:no-repeat !important;text-decoration:none !important;}a#rgjmzdtragyldynxqvkxgmrykcqqmjbrffayxm-gear:hover{-webkit-animation-name:poprgjmzdtragyldynxqvkxgmrykcqqmjbrffayxm !important;animation-name:poprgjmzdtragyldynxqvkxgmrykcqqmjbrffayxm !important;-webkit-animation-duration:0.3s !important;animation-duration:0.3s !important;}#rgjmzdtragyldynxqvkxgmrykcqqmjbrffayxm:hover #rgjmzdtragyldynxqvkxgmrykcqqmjbrffayxm-gear{text-decoration:none !important;display:inline-block !important;}#rgjmzdtragyldynxqvkxgmrykcqqmjbrffayxm hr{visibility:hidden !important;padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;position:static;height:1em;}@media print{#rgjmzdtragyldynxqvkxgmrykcqqmjbrffayxm{display:none !important;}}</style></head>
+
+<body>
+
+<div id="container"><!--BEGIN container-->
+
+	<div id="header"> <!--BEGIN header -->
+	
+		<div id="top">
+			<div id="title"><h1><a href="http://blog.rchapman.org/">&gt;Ryan A. Chapman</a></h1></div>
+		</div>
+		
+		<div id="upper">
+		
+			<div class="nav">	
+				
+				<ol>
+					<li><a href="javascript:ts();function%20ts(){var%20q=window.prompt('Search%20this%20tumblelog:');if(q){var%20l=location.href;var%20r=l.substring(0,l.indexOf('/',7));var%20u=r+'/search/'+q;window.location.href=u;};}">Search</a></li>
+					
+					<li><a href="http://blog.rchapman.org/ask">Ask me anything</a></li>
+                    <li><a href="http://blog.rchapman.org/submit">Submit</a></li>
+					<li><a href="http://blog.rchapman.org/rss">Subscribe</a></li>
+					<li><a href="http://blog.rchapman.org/archive">Archive</a></li>
+					<li><a href="http://blog.rchapman.org/random">Random</a></li>
+				</ol>
+				
+				
+				
+				<div id="clearfix"></div>
+			
+			</div>
+			
+			
+			
+			<!--Put your Twitter/Flickr badges and extra links below here-->
+			
+			
+			<div id="twitter_div">
+				<ul id="tweets"><li>RT @lorisdegio: @brendangregg @sysdig the just 
+released version of sysdig includes Brendan's subsecoffset chisel 
+https://t.co/wxHNdKPzxs <a href="http://twitter.com/RyanChapman" title="RyanChapman on Twitter">follow me →</a></li></ul>
+			</div>
+			
+			
+			
+		
+			<!--Put your Twitter/Flickr badges and extra links above here-->
+				
+			
+	
+				<div id="clearfix"></div>
+			
+			</div>
+	
+	</div> <!--END header-->
+
+	<div id="content"><!--BEGIN content-->
+	
+		
+		
+		<div id="perma_nav">
+			<div class="newer"><a href="http://blog.rchapman.org/post/47406142744">Newer</a></div> 
+			
+			<div class="older"><a href="http://blog.rchapman.org/post/17480234232">Older</a></div>
+			
+			<div id="clearfix"></div>
+		</div>
+		
+		<ul>
+		
+			<li class="posts">
+				
+							
+					<h1><a href="http://blog.rchapman.org/post/36801038863/linux-system-call-table-for-x86-64" title="Linux System Call Table for x86_64">Linux System Call Table for x86_64</a></h1>
+					<div class="caption"><i>Linux 3.19, x86_64</i><br><br><p>Note: 64-bit x86 uses syscall instead of interrupt 0x80. The result value will be in %rax</p>
+
+<p>To find the implementation of a system call, grep the kernel tree for <code>SYSCALL_DEFINE.\?(<i>syscall</i>,</code><br>
+For example, to find the read system call:
+</p><pre>illusion:/usr/src/linux-source-3.19$ grep -rA3 'SYSCALL_DEFINE.\?(read,' *
+fs/read_write.c:SYSCALL_DEFINE3(read, unsigned int, fd, char __user *, buf, size_t, count)
+fs/read_write.c-{
+fs/read_write.c-        struct file *file;
+fs/read_write.c-        ssize_t ret = -EBADF;
+</pre>
+The results show that the implementation is in fs/read_write.c and that it takes 3 arguments (thus SYSCALL_DEFINE3).
+
+<p><a href="http://lxr.linux.no/linux+v3.2/arch/x86/include/asm/unistd_64.h">Linux Cross Reference</a> is another good tool for finding information about system calls.</p>
+
+<p>By the way, the system call numbers are different for 32-bit x86. A system call table for i386 (32-bit) can be found at <a href="http://docs.cs.up.ac.za/programming/asm/derick_tut/syscalls.html">http://docs.cs.up.ac.za/programming/asm/derick_tut/syscalls.html</a></p>
+
+<p>Information on the order of registers can be found on page 124 of the x86_64 ABI paper at <a href="http://www.x86-64.org/documentation/abi.pdf">http://www.x86-64.org/documentation/abi.pdf</a>
+
+</p><table border=""><tbody><tr><th align="left">%rax</th><th align="left">System call</th><th align="left">%rdi</th><th align="left">%rsi</th><th align="left">%rdx</th><th align="left">%r10</th><th align="left">%r8</th><th align="left">%r9</th></tr><tr><td>0</td><td>sys_read</td><td>unsigned int fd</td><td>char *buf</td><td>size_t count</td><td></td><td></td><td></td></tr><tr><td>1</td><td>sys_write</td><td>unsigned int fd</td><td>const char *buf</td><td>size_t count</td><td></td><td></td><td></td></tr><tr><td>2</td><td>sys_open</td><td>const char *filename</td><td>int flags</td><td>int mode</td><td></td><td></td><td></td></tr><tr><td>3</td><td>sys_close</td><td>unsigned int fd</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>4</td><td>sys_stat</td><td>const char *filename</td><td>struct stat *statbuf</td><td></td><td></td><td></td><td></td></tr><tr><td>5</td><td>sys_fstat</td><td>unsigned int fd</td><td>struct stat *statbuf</td><td></td><td></td><td></td><td></td></tr><tr><td>6</td><td>sys_lstat</td><td>fconst char *filename</td><td>struct stat *statbuf</td><td></td><td></td><td></td><td></td></tr><tr><td>7</td><td>sys_poll</td><td>struct poll_fd *ufds</td><td>unsigned int nfds</td><td>long timeout_msecs</td><td></td><td></td><td></td></tr><tr><td>8</td><td>sys_lseek</td><td>unsigned int fd</td><td>off_t offset</td><td>unsigned int origin</td><td></td><td></td><td></td></tr><tr><td>9</td><td>sys_mmap</td><td>unsigned long addr</td><td>unsigned long len</td><td>unsigned long prot</td><td>unsigned long flags</td><td>unsigned long fd</td><td>unsigned long off</td></tr><tr><td>10</td><td>sys_mprotect</td><td>unsigned long start</td><td>size_t len</td><td>unsigned long prot</td><td></td><td></td><td></td></tr><tr><td>11</td><td>sys_munmap</td><td>unsigned long addr</td><td>size_t len</td><td></td><td></td><td></td><td></td></tr><tr><td>12</td><td>sys_brk</td><td>unsigned long brk</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>13</td><td>sys_rt_sigaction</td><td>int sig</td><td>const struct sigaction *act</td><td>struct sigaction *oact</td><td>size_t sigsetsize</td><td></td><td></td></tr><tr><td>14</td><td>sys_rt_sigprocmask</td><td>int how</td><td>sigset_t *nset</td><td>sigset_t *oset</td><td>size_t sigsetsize</td><td></td><td></td></tr><tr><td>15</td><td>sys_rt_sigreturn</td><td>unsigned long __unused</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>16</td><td>sys_ioctl</td><td>unsigned int fd</td><td>unsigned int cmd</td><td>unsigned long arg</td><td></td><td></td><td></td></tr><tr><td>17</td><td>sys_pread64</td><td>unsigned long fd</td><td>char *buf</td><td>size_t count</td><td>loff_t pos</td><td></td><td></td></tr><tr><td>18</td><td>sys_pwrite64</td><td>unsigned int fd</td><td>const char *buf</td><td>size_t count</td><td>loff_t pos</td><td></td><td></td></tr><tr><td>19</td><td>sys_readv</td><td>unsigned long fd</td><td>const struct iovec *vec</td><td>unsigned long vlen</td><td></td><td></td><td></td></tr><tr><td>20</td><td>sys_writev</td><td>unsigned long fd</td><td>const struct iovec *vec</td><td>unsigned long vlen</td><td></td><td></td><td></td></tr><tr><td>21</td><td>sys_access</td><td>const char *filename</td><td>int mode</td><td></td><td></td><td></td><td></td></tr><tr><td>22</td><td>sys_pipe</td><td>int *filedes</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>23</td><td>sys_select</td><td>int n</td><td>fd_set *inp</td><td>fd_set *outp</td><td>fd_set*exp</td><td>struct timeval *tvp</td><td></td></tr><tr><td>24</td><td>sys_sched_yield</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>25</td><td>sys_mremap</td><td>unsigned long addr</td><td>unsigned long old_len</td><td>unsigned long new_len</td><td>unsigned long flags</td><td>unsigned long new_addr</td><td></td></tr><tr><td>26</td><td>sys_msync</td><td>unsigned long start</td><td>size_t len</td><td>int flags</td><td></td><td></td><td></td></tr><tr><td>27</td><td>sys_mincore</td><td>unsigned long start</td><td>size_t len</td><td>unsigned char *vec</td><td></td><td></td><td></td></tr><tr><td>28</td><td>sys_madvise</td><td>unsigned long start</td><td>size_t len_in</td><td>int behavior</td><td></td><td></td><td></td></tr><tr><td>29</td><td>sys_shmget</td><td>key_t key</td><td>size_t size</td><td>int shmflg</td><td></td><td></td><td></td></tr><tr><td>30</td><td>sys_shmat</td><td>int shmid</td><td>char *shmaddr</td><td>int shmflg</td><td></td><td></td><td></td></tr><tr><td>31</td><td>sys_shmctl</td><td>int shmid</td><td>int cmd</td><td>struct shmid_ds *buf</td><td></td><td></td><td></td></tr><tr><td>32</td><td>sys_dup</td><td>unsigned int fildes</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>33</td><td>sys_dup2</td><td>unsigned int oldfd</td><td>unsigned int newfd</td><td></td><td></td><td></td><td></td></tr><tr><td>34</td><td>sys_pause</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>35</td><td>sys_nanosleep</td><td>struct timespec *rqtp</td><td>struct timespec *rmtp</td><td></td><td></td><td></td><td></td></tr><tr><td>36</td><td>sys_getitimer</td><td>int which</td><td>struct itimerval *value</td><td></td><td></td><td></td><td></td></tr><tr><td>37</td><td>sys_alarm</td><td>unsigned int seconds</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>38</td><td>sys_setitimer</td><td>int which</td><td>struct itimerval *value</td><td>struct itimerval *ovalue</td><td></td><td></td><td></td></tr><tr><td>39</td><td>sys_getpid</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>40</td><td>sys_sendfile</td><td>int out_fd</td><td>int in_fd</td><td>off_t *offset</td><td>size_t count</td><td></td><td></td></tr><tr><td>41</td><td>sys_socket</td><td>int family</td><td>int type</td><td>int protocol</td><td></td><td></td><td></td></tr><tr><td>42</td><td>sys_connect</td><td>int fd</td><td>struct sockaddr *uservaddr</td><td>int addrlen</td><td></td><td></td><td></td></tr><tr><td>43</td><td>sys_accept</td><td>int fd</td><td>struct sockaddr *upeer_sockaddr</td><td>int *upeer_addrlen</td><td></td><td></td><td></td></tr><tr><td>44</td><td>sys_sendto</td><td>int fd</td><td>void *buff</td><td>size_t len</td><td>unsigned flags</td><td>struct sockaddr *addr</td><td>int addr_len</td></tr><tr><td>45</td><td>sys_recvfrom</td><td>int fd</td><td>void *ubuf</td><td>size_t size</td><td>unsigned flags</td><td>struct sockaddr *addr</td><td>int *addr_len</td></tr><tr><td>46</td><td>sys_sendmsg</td><td>int fd</td><td>struct msghdr *msg</td><td>unsigned flags</td><td></td><td></td><td></td></tr><tr><td>47</td><td>sys_recvmsg</td><td>int fd</td><td>struct msghdr *msg</td><td>unsigned int flags</td><td></td><td></td><td></td></tr><tr><td>48</td><td>sys_shutdown</td><td>int fd</td><td>int how</td><td></td><td></td><td></td><td></td></tr><tr><td>49</td><td>sys_bind</td><td>int fd</td><td>struct sokaddr *umyaddr</td><td>int addrlen</td><td></td><td></td><td></td></tr><tr><td>50</td><td>sys_listen</td><td>int fd</td><td>int backlog</td><td></td><td></td><td></td><td></td></tr><tr><td>51</td><td>sys_getsockname</td><td>int fd</td><td>struct sockaddr *usockaddr</td><td>int *usockaddr_len</td><td></td><td></td><td></td></tr><tr><td>52</td><td>sys_getpeername</td><td>int fd</td><td>struct sockaddr *usockaddr</td><td>int *usockaddr_len</td><td></td><td></td><td></td></tr><tr><td>53</td><td>sys_socketpair</td><td>int family</td><td>int type</td><td>int protocol</td><td>int *usockvec</td><td></td><td></td></tr><tr><td>54</td><td>sys_setsockopt</td><td>int fd</td><td>int level</td><td>int optname</td><td>char *optval</td><td>int optlen</td><td></td></tr><tr><td>55</td><td>sys_getsockopt</td><td>int fd</td><td>int level</td><td>int optname</td><td>char *optval</td><td>int *optlen</td><td></td></tr><tr><td>56</td><td>sys_clone</td><td>unsigned long clone_flags</td><td>unsigned long newsp</td><td>void *parent_tid</td><td>void *child_tid</td><td></td><td></td></tr><tr><td>57</td><td>sys_fork</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>58</td><td>sys_vfork</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>59</td><td>sys_execve</td><td>const char *filename</td><td>const char *const argv[]</td><td>const char *const envp[]</td><td></td><td></td><td></td></tr><tr><td>60</td><td>sys_exit</td><td>int error_code</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>61</td><td>sys_wait4</td><td>pid_t upid</td><td>int *stat_addr</td><td>int options</td><td>struct rusage *ru</td><td></td><td></td></tr><tr><td>62</td><td>sys_kill</td><td>pid_t pid</td><td>int sig</td><td></td><td></td><td></td><td></td></tr><tr><td>63</td><td>sys_uname</td><td>struct old_utsname *name</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>64</td><td>sys_semget</td><td>key_t key</td><td>int nsems</td><td>int semflg</td><td></td><td></td><td></td></tr><tr><td>65</td><td>sys_semop</td><td>int semid</td><td>struct sembuf *tsops</td><td>unsigned nsops</td><td></td><td></td><td></td></tr><tr><td>66</td><td>sys_semctl</td><td>int semid</td><td>int semnum</td><td>int cmd</td><td>union semun arg</td><td></td><td></td></tr><tr><td>67</td><td>sys_shmdt</td><td>char *shmaddr</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>68</td><td>sys_msgget</td><td>key_t key</td><td>int msgflg</td><td></td><td></td><td></td><td></td></tr><tr><td>69</td><td>sys_msgsnd</td><td>int msqid</td><td>struct msgbuf *msgp</td><td>size_t msgsz</td><td>int msgflg</td><td></td><td></td></tr><tr><td>70</td><td>sys_msgrcv</td><td>int msqid</td><td>struct msgbuf *msgp</td><td>size_t msgsz</td><td>long msgtyp</td><td>int msgflg</td><td></td></tr><tr><td>71</td><td>sys_msgctl</td><td>int msqid</td><td>int cmd</td><td>struct msqid_ds *buf</td><td></td><td></td><td></td></tr><tr><td>72</td><td>sys_fcntl</td><td>unsigned int fd</td><td>unsigned int cmd</td><td>unsigned long arg</td><td></td><td></td><td></td></tr><tr><td>73</td><td>sys_flock</td><td>unsigned int fd</td><td>unsigned int cmd</td><td></td><td></td><td></td><td></td></tr><tr><td>74</td><td>sys_fsync</td><td>unsigned int fd</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>75</td><td>sys_fdatasync</td><td>unsigned int fd</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>76</td><td>sys_truncate</td><td>const char *path</td><td>long length</td><td></td><td></td><td></td><td></td></tr><tr><td>77</td><td>sys_ftruncate</td><td>unsigned int fd</td><td>unsigned long length</td><td></td><td></td><td></td><td></td></tr><tr><td>78</td><td>sys_getdents</td><td>unsigned int fd</td><td>struct linux_dirent *dirent</td><td>unsigned int count</td><td></td><td></td><td></td></tr><tr><td>79</td><td>sys_getcwd</td><td>char *buf</td><td>unsigned long size</td><td></td><td></td><td></td><td></td></tr><tr><td>80</td><td>sys_chdir</td><td>const char *filename</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>81</td><td>sys_fchdir</td><td>unsigned int fd</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>82</td><td>sys_rename</td><td>const char *oldname</td><td>const char *newname</td><td></td><td></td><td></td><td></td></tr><tr><td>83</td><td>sys_mkdir</td><td>const char *pathname</td><td>int mode</td><td></td><td></td><td></td><td></td></tr><tr><td>84</td><td>sys_rmdir</td><td>const char *pathname</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>85</td><td>sys_creat</td><td>const char *pathname</td><td>int mode</td><td></td><td></td><td></td><td></td></tr><tr><td>86</td><td>sys_link</td><td>const char *oldname</td><td>const char *newname</td><td></td><td></td><td></td><td></td></tr><tr><td>87</td><td>sys_unlink</td><td>const char *pathname</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>88</td><td>sys_symlink</td><td>const char *oldname</td><td>const char *newname</td><td></td><td></td><td></td><td></td></tr><tr><td>89</td><td>sys_readlink</td><td>const char *path</td><td>char *buf</td><td>int bufsiz</td><td></td><td></td><td></td></tr><tr><td>90</td><td>sys_chmod</td><td>const char *filename</td><td>mode_t mode</td><td></td><td></td><td></td><td></td></tr><tr><td>91</td><td>sys_fchmod</td><td>unsigned int fd</td><td>mode_t mode</td><td></td><td></td><td></td><td></td></tr><tr><td>92</td><td>sys_chown</td><td>const char *filename</td><td>uid_t user</td><td>git_t group</td><td></td><td></td><td></td></tr><tr><td>93</td><td>sys_fchown</td><td>unsigned int fd</td><td>uid_t user</td><td>git_t group</td><td></td><td></td><td></td></tr><tr><td>94</td><td>sys_lchown</td><td>const char *filename</td><td>uid_t user</td><td>git_t group</td><td></td><td></td><td></td></tr><tr><td>95</td><td>sys_umask</td><td>int mask</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>96</td><td>sys_gettimeofday</td><td>struct timeval *tv</td><td>struct timezone *tz</td><td></td><td></td><td></td><td></td></tr><tr><td>97</td><td>sys_getrlimit</td><td>unsigned int resource</td><td>struct rlimit *rlim</td><td></td><td></td><td></td><td></td></tr><tr><td>98</td><td>sys_getrusage</td><td>int who</td><td>struct rusage *ru</td><td></td><td></td><td></td><td></td></tr><tr><td>99</td><td>sys_sysinfo</td><td>struct sysinfo *info</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>100</td><td>sys_times</td><td>struct sysinfo *info</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>101</td><td>sys_ptrace</td><td>long request</td><td>long pid</td><td>unsigned long addr</td><td>unsigned long data</td><td></td><td></td></tr><tr><td>102</td><td>sys_getuid</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>103</td><td>sys_syslog</td><td>int type</td><td>char *buf</td><td>int len</td><td></td><td></td><td></td></tr><tr><td>104</td><td>sys_getgid</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>105</td><td>sys_setuid</td><td>uid_t uid</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>106</td><td>sys_setgid</td><td>git_t gid</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>107</td><td>sys_geteuid</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>108</td><td>sys_getegid</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>109</td><td>sys_setpgid</td><td>pid_t pid</td><td>pid_t pgid</td><td></td><td></td><td></td><td></td></tr><tr><td>110</td><td>sys_getppid</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>111</td><td>sys_getpgrp</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>112</td><td>sys_setsid</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>113</td><td>sys_setreuid</td><td>uid_t ruid</td><td>uid_t euid</td><td></td><td></td><td></td><td></td></tr><tr><td>114</td><td>sys_setregid</td><td>git_t rgid</td><td>gid_t egid</td><td></td><td></td><td></td><td></td></tr><tr><td>115</td><td>sys_getgroups</td><td>int gidsetsize</td><td>gid_t *grouplist</td><td></td><td></td><td></td><td></td></tr><tr><td>116</td><td>sys_setgroups</td><td>int gidsetsize</td><td>gid_t *grouplist</td><td></td><td></td><td></td><td></td></tr><tr><td>117</td><td>sys_setresuid</td><td>uid_t *ruid</td><td>uid_t *euid</td><td>uid_t *suid</td><td></td><td></td><td></td></tr><tr><td>118</td><td>sys_getresuid</td><td>uid_t *ruid</td><td>uid_t *euid</td><td>uid_t *suid</td><td></td><td></td><td></td></tr><tr><td>119</td><td>sys_setresgid</td><td>gid_t rgid</td><td>gid_t egid</td><td>gid_t sgid</td><td></td><td></td><td></td></tr><tr><td>120</td><td>sys_getresgid</td><td>git_t *rgid</td><td>git_t *egid</td><td>git_t *sgid</td><td></td><td></td><td></td></tr><tr><td>121</td><td>sys_getpgid</td><td>pid_t pid</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>122</td><td>sys_setfsuid</td><td>uid_t uid</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>123</td><td>sys_setfsgid</td><td>gid_t gid</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>124</td><td>sys_getsid</td><td>pid_t pid</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>125</td><td>sys_capget</td><td>cap_user_header_t header</td><td>cap_user_data_t dataptr</td><td></td><td></td><td></td><td></td></tr><tr><td>126</td><td>sys_capset</td><td>cap_user_header_t header</td><td>const cap_user_data_t data</td><td></td><td></td><td></td><td></td></tr><tr><td>127</td><td>sys_rt_sigpending</td><td>sigset_t *set</td><td>size_t sigsetsize</td><td></td><td></td><td></td><td></td></tr><tr><td>128</td><td>sys_rt_sigtimedwait</td><td>const sigset_t *uthese</td><td>siginfo_t *uinfo</td><td>const struct timespec *uts</td><td>size_t sigsetsize</td><td></td><td></td></tr><tr><td>129</td><td>sys_rt_sigqueueinfo</td><td>pid_t pid</td><td>int sig</td><td>siginfo_t *uinfo</td><td></td><td></td><td></td></tr><tr><td>130</td><td>sys_rt_sigsuspend</td><td>sigset_t *unewset</td><td>size_t sigsetsize</td><td></td><td></td><td></td><td></td></tr><tr><td>131</td><td>sys_sigaltstack</td><td>const stack_t *uss</td><td>stack_t *uoss</td><td></td><td></td><td></td><td></td></tr><tr><td>132</td><td>sys_utime</td><td>char *filename</td><td>struct utimbuf *times</td><td></td><td></td><td></td><td></td></tr><tr><td>133</td><td>sys_mknod</td><td>const char *filename</td><td>int mode</td><td>unsigned dev</td><td></td><td></td><td></td></tr><tr><td>134</td><td>sys_uselib</td><td>NOT IMPLEMENTED</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>135</td><td>sys_personality</td><td>unsigned int personality</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>136</td><td>sys_ustat</td><td>unsigned dev</td><td>struct ustat *ubuf</td><td></td><td></td><td></td><td></td></tr><tr><td>137</td><td>sys_statfs</td><td>const char *pathname</td><td>struct statfs *buf</td><td></td><td></td><td></td><td></td></tr><tr><td>138</td><td>sys_fstatfs</td><td>unsigned int fd</td><td>struct statfs *buf</td><td></td><td></td><td></td><td></td></tr><tr><td>139</td><td>sys_sysfs</td><td>int option</td><td>unsigned long arg1</td><td>unsigned long arg2</td><td></td><td></td><td></td></tr><tr><td>140</td><td>sys_getpriority</td><td>int which</td><td>int who</td><td></td><td></td><td></td><td></td></tr><tr><td>141</td><td>sys_setpriority</td><td>int which</td><td>int who</td><td>int niceval</td><td></td><td></td><td></td></tr><tr><td>142</td><td>sys_sched_setparam</td><td>pid_t pid</td><td>struct sched_param *param</td><td></td><td></td><td></td><td></td></tr><tr><td>143</td><td>sys_sched_getparam</td><td>pid_t pid</td><td>struct sched_param *param</td><td></td><td></td><td></td><td></td></tr><tr><td>144</td><td>sys_sched_setscheduler</td><td>pid_t pid</td><td>int policy</td><td>struct sched_param *param</td><td></td><td></td><td></td></tr><tr><td>145</td><td>sys_sched_getscheduler</td><td>pid_t pid</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>146</td><td>sys_sched_get_priority_max</td><td>int policy</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>147</td><td>sys_sched_get_priority_min</td><td>int policy</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>148</td><td>sys_sched_rr_get_interval</td><td>pid_t pid</td><td>struct timespec *interval</td><td></td><td></td><td></td><td></td></tr><tr><td>149</td><td>sys_mlock</td><td>unsigned long start</td><td>size_t len</td><td></td><td></td><td></td><td></td></tr><tr><td>150</td><td>sys_munlock</td><td>unsigned long start</td><td>size_t len</td><td></td><td></td><td></td><td></td></tr><tr><td>151</td><td>sys_mlockall</td><td>int flags</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>152</td><td>sys_munlockall</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>153</td><td>sys_vhangup</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>154</td><td>sys_modify_ldt</td><td>int func</td><td>void *ptr</td><td>unsigned long bytecount</td><td></td><td></td><td></td></tr><tr><td>155</td><td>sys_pivot_root</td><td>const char *new_root</td><td>const char *put_old</td><td></td><td></td><td></td><td></td></tr><tr><td>156</td><td>sys__sysctl</td><td>struct __sysctl_args *args</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>157</td><td>sys_prctl</td><td>int option</td><td>unsigned long arg2</td><td>unsigned long arg3</td><td>unsigned long arg4</td><td></td><td>unsigned long arg5</td></tr><tr><td>158</td><td>sys_arch_prctl</td><td>struct task_struct *task</td><td>int code</td><td>unsigned long *addr</td><td></td><td></td><td></td></tr><tr><td>159</td><td>sys_adjtimex</td><td>struct timex *txc_p</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>160</td><td>sys_setrlimit</td><td>unsigned int resource</td><td>struct rlimit *rlim</td><td></td><td></td><td></td><td></td></tr><tr><td>161</td><td>sys_chroot</td><td>const char *filename</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>162</td><td>sys_sync</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>163</td><td>sys_acct</td><td>const char *name</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>164</td><td>sys_settimeofday</td><td>struct timeval *tv</td><td>struct timezone *tz</td><td></td><td></td><td></td><td></td></tr><tr><td>165</td><td>sys_mount</td><td>char *dev_name</td><td>char *dir_name</td><td>char *type</td><td>unsigned long flags</td><td>void *data</td><td></td></tr><tr><td>166</td><td>sys_umount2</td><td>const char *target</td><td>int flags</td><td></td><td></td><td></td><td></td></tr><tr><td>167</td><td>sys_swapon</td><td>const char *specialfile</td><td>int swap_flags</td><td></td><td></td><td></td><td></td></tr><tr><td>168</td><td>sys_swapoff</td><td>const char *specialfile</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>169</td><td>sys_reboot</td><td>int magic1</td><td>int magic2</td><td>unsigned int cmd</td><td>void *arg</td><td></td><td></td></tr><tr><td>170</td><td>sys_sethostname</td><td>char *name</td><td>int len</td><td></td><td></td><td></td><td></td></tr><tr><td>171</td><td>sys_setdomainname</td><td>char *name</td><td>int len</td><td></td><td></td><td></td><td></td></tr><tr><td>172</td><td>sys_iopl</td><td>unsigned int level</td><td>struct pt_regs *regs</td><td></td><td></td><td></td><td></td></tr><tr><td>173</td><td>sys_ioperm</td><td>unsigned long from</td><td>unsigned long num</td><td>int turn_on</td><td></td><td></td><td></td></tr><tr><td>174</td><td>sys_create_module</td><td>REMOVED IN Linux 2.6</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>175</td><td>sys_init_module</td><td>void *umod</td><td>unsigned long len</td><td>const char *uargs</td><td></td><td></td><td></td></tr><tr><td>176</td><td>sys_delete_module</td><td>const chat *name_user</td><td>unsigned int flags</td><td></td><td></td><td></td><td></td></tr><tr><td>177</td><td>sys_get_kernel_syms</td><td>REMOVED IN Linux 2.6</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>178</td><td>sys_query_module</td><td>REMOVED IN Linux 2.6</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>179</td><td>sys_quotactl</td><td>unsigned int cmd</td><td>const char *special</td><td>qid_t id</td><td>void *addr</td><td></td><td></td></tr><tr><td>180</td><td>sys_nfsservctl</td><td>NOT IMPLEMENTED</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>181</td><td>sys_getpmsg</td><td>NOT IMPLEMENTED</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>182</td><td>sys_putpmsg</td><td>NOT IMPLEMENTED</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>183</td><td>sys_afs_syscall</td><td>NOT IMPLEMENTED</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>184</td><td>sys_tuxcall</td><td>NOT IMPLEMENTED</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>185</td><td>sys_security</td><td>NOT IMPLEMENTED</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>186</td><td>sys_gettid</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>187</td><td>sys_readahead</td><td>int fd</td><td>loff_t offset</td><td>size_t count</td><td></td><td></td><td></td></tr><tr><td>188</td><td>sys_setxattr</td><td>const char *pathname</td><td>const char *name</td><td>const void *value</td><td>size_t size</td><td>int flags</td><td></td></tr><tr><td>189</td><td>sys_lsetxattr</td><td>const char *pathname</td><td>const char *name</td><td>const void *value</td><td>size_t size</td><td>int flags</td><td></td></tr><tr><td>190</td><td>sys_fsetxattr</td><td>int fd</td><td>const char *name</td><td>const void *value</td><td>size_t size</td><td>int flags</td><td></td></tr><tr><td>191</td><td>sys_getxattr</td><td>const char *pathname</td><td>const char *name</td><td>void *value</td><td>size_t size</td><td></td><td></td></tr><tr><td>192</td><td>sys_lgetxattr</td><td>const char *pathname</td><td>const char *name</td><td>void *value</td><td>size_t size</td><td></td><td></td></tr><tr><td>193</td><td>sys_fgetxattr</td><td>int fd</td><td>const har *name</td><td>void *value</td><td>size_t size</td><td></td><td></td></tr><tr><td>194</td><td>sys_listxattr</td><td>const char *pathname</td><td>char *list</td><td>size_t size</td><td></td><td></td><td></td></tr><tr><td>195</td><td>sys_llistxattr</td><td>const char *pathname</td><td>char *list</td><td>size_t size</td><td></td><td></td><td></td></tr><tr><td>196</td><td>sys_flistxattr</td><td>int fd</td><td>char *list</td><td>size_t size</td><td></td><td></td><td></td></tr><tr><td>197</td><td>sys_removexattr</td><td>const char *pathname</td><td>const char *name</td><td></td><td></td><td></td><td></td></tr><tr><td>198</td><td>sys_lremovexattr</td><td>const char *pathname</td><td>const char *name</td><td></td><td></td><td></td><td></td></tr><tr><td>199</td><td>sys_fremovexattr</td><td>int fd</td><td>const char *name</td><td></td><td></td><td></td><td></td></tr><tr><td>200</td><td>sys_tkill</td><td>pid_t pid</td><td>ing sig</td><td></td><td></td><td></td><td></td></tr><tr><td>201</td><td>sys_time</td><td>time_t *tloc</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>202</td><td>sys_futex</td><td>u32 *uaddr</td><td>int op</td><td>u32 val</td><td>struct timespec *utime</td><td>u32 *uaddr2</td><td>u32 val3</td></tr><tr><td>203</td><td>sys_sched_setaffinity</td><td>pid_t pid</td><td>unsigned int len</td><td>unsigned long *user_mask_ptr</td><td></td><td></td><td></td></tr><tr><td>204</td><td>sys_sched_getaffinity</td><td>pid_t pid</td><td>unsigned int len</td><td>unsigned long *user_mask_ptr</td><td></td><td></td><td></td></tr><tr><td>205</td><td>sys_set_thread_area</td><td>NOT IMPLEMENTED. Use arch_prctl</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>206</td><td>sys_io_setup</td><td>unsigned nr_events</td><td>aio_context_t *ctxp</td><td></td><td></td><td></td><td></td></tr><tr><td>207</td><td>sys_io_destroy</td><td>aio_context_t ctx</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>208</td><td>sys_io_getevents</td><td>aio_context_t ctx_id</td><td>long min_nr</td><td>long nr</td><td>struct io_event *events</td><td></td><td></td></tr><tr><td>209</td><td>sys_io_submit</td><td>aio_context_t ctx_id</td><td>long nr</td><td>struct iocb **iocbpp</td><td></td><td></td><td></td></tr><tr><td>210</td><td>sys_io_cancel</td><td>aio_context_t ctx_id</td><td>struct iocb *iocb</td><td>struct io_event *result</td><td></td><td></td><td></td></tr><tr><td>211</td><td>sys_get_thread_area</td><td>NOT IMPLEMENTED. Use arch_prctl</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>212</td><td>sys_lookup_dcookie</td><td>u64 cookie64</td><td>long buf</td><td>long len</td><td></td><td></td><td></td></tr><tr><td>213</td><td>sys_epoll_create</td><td>int size</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>214</td><td>sys_epoll_ctl_old</td><td>NOT IMPLEMENTED</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>215</td><td>sys_epoll_wait_old</td><td>NOT IMPLEMENTED</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>216</td><td>sys_remap_file_pages</td><td>unsigned long start</td><td>unsigned long size</td><td>unsigned long prot</td><td>unsigned long pgoff</td><td>unsigned long flags</td><td></td></tr><tr><td>217</td><td>sys_getdents64</td><td>unsigned int fd</td><td>struct linux_dirent64 *dirent</td><td>unsigned int count</td><td></td><td></td><td></td></tr><tr><td>218</td><td>sys_set_tid_address</td><td>int *tidptr</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>219</td><td>sys_restart_syscall</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>220</td><td>sys_semtimedop</td><td>int semid</td><td>struct sembuf *tsops</td><td>unsigned nsops</td><td>const struct timespec *timeout</td><td></td><td></td></tr><tr><td>221</td><td>sys_fadvise64</td><td>int fd</td><td>loff_t offset</td><td>size_t len</td><td>int advice</td><td></td><td></td></tr><tr><td>222</td><td>sys_timer_create</td><td>const clockid_t which_clock</td><td>struct sigevent *timer_event_spec</td><td>timer_t *created_timer_id</td><td></td><td></td><td></td></tr><tr><td>223</td><td>sys_timer_settime</td><td>timer_t timer_id</td><td>int flags</td><td>const struct itimerspec *new_setting</td><td>struct itimerspec *old_setting</td><td></td><td></td></tr><tr><td>224</td><td>sys_timer_gettime</td><td>timer_t timer_id</td><td>struct itimerspec *setting</td><td></td><td></td><td></td><td></td></tr><tr><td>225</td><td>sys_timer_getoverrun</td><td>timer_t timer_id</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>226</td><td>sys_timer_delete</td><td>timer_t timer_id</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>227</td><td>sys_clock_settime</td><td>const clockid_t which_clock</td><td>const struct timespec *tp</td><td></td><td></td><td></td><td></td></tr><tr><td>228</td><td>sys_clock_gettime</td><td>const clockid_t which_clock</td><td>struct timespec *tp</td><td></td><td></td><td></td><td></td></tr><tr><td>229</td><td>sys_clock_getres</td><td>const clockid_t which_clock</td><td>struct timespec *tp</td><td></td><td></td><td></td><td></td></tr><tr><td>230</td><td>sys_clock_nanosleep</td><td>const clockid_t which_clock</td><td>int flags</td><td>const struct timespec *rqtp</td><td>struct timespec *rmtp</td><td></td><td></td></tr><tr><td>231</td><td>sys_exit_group</td><td>int error_code</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>232</td><td>sys_epoll_wait</td><td>int epfd</td><td>struct epoll_event *events</td><td>int maxevents</td><td>int timeout</td><td></td><td></td></tr><tr><td>233</td><td>sys_epoll_ctl</td><td>int epfd</td><td>int op</td><td>int fd</td><td>struct epoll_event *event</td><td></td><td></td></tr><tr><td>234</td><td>sys_tgkill</td><td>pid_t tgid</td><td>pid_t pid</td><td>int sig</td><td></td><td></td><td></td></tr><tr><td>235</td><td>sys_utimes</td><td>char *filename</td><td>struct timeval *utimes</td><td></td><td></td><td></td><td></td></tr><tr><td>236</td><td>sys_vserver</td><td>NOT IMPLEMENTED</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>237</td><td>sys_mbind</td><td>unsigned long start</td><td>unsigned long len</td><td>unsigned long mode</td><td>unsigned long *nmask</td><td>unsigned long maxnode</td><td>unsigned flags</td></tr><tr><td>238</td><td>sys_set_mempolicy</td><td>int mode</td><td>unsigned long *nmask</td><td>unsigned long maxnode</td><td></td><td></td><td></td></tr><tr><td>239</td><td>sys_get_mempolicy</td><td>int *policy</td><td>unsigned long *nmask</td><td>unsigned long maxnode</td><td>unsigned long addr</td><td>unsigned long flags</td><td></td></tr><tr><td>240</td><td>sys_mq_open</td><td>const char *u_name</td><td>int oflag</td><td>mode_t mode</td><td>struct mq_attr *u_attr</td><td></td><td></td></tr><tr><td>241</td><td>sys_mq_unlink</td><td>const char *u_name</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>242</td><td>sys_mq_timedsend</td><td>mqd_t mqdes</td><td>const char *u_msg_ptr</td><td>size_t msg_len</td><td>unsigned int msg_prio</td><td>const stuct timespec *u_abs_timeout</td><td></td></tr><tr><td>243</td><td>sys_mq_timedreceive</td><td>mqd_t mqdes</td><td>char *u_msg_ptr</td><td>size_t msg_len</td><td>unsigned int *u_msg_prio</td><td>const struct timespec *u_abs_timeout</td><td></td></tr><tr><td>244</td><td>sys_mq_notify</td><td>mqd_t mqdes</td><td>const struct sigevent *u_notification</td><td></td><td></td><td></td><td></td></tr><tr><td>245</td><td>sys_mq_getsetattr</td><td>mqd_t mqdes</td><td>const struct mq_attr *u_mqstat</td><td>struct mq_attr *u_omqstat</td><td></td><td></td><td></td></tr><tr><td>246</td><td>sys_kexec_load</td><td>unsigned long entry</td><td>unsigned long nr_segments</td><td>struct kexec_segment *segments</td><td>unsigned long flags</td><td></td><td></td></tr><tr><td>247</td><td>sys_waitid</td><td>int which</td><td>pid_t upid</td><td>struct siginfo *infop</td><td>int options</td><td>struct rusage *ru</td><td></td></tr><tr><td>248</td><td>sys_add_key</td><td>const char *_type</td><td>const char *_description</td><td>const void *_payload</td><td>size_t plen</td><td></td><td></td></tr><tr><td>249</td><td>sys_request_key</td><td>const char *_type</td><td>const char *_description</td><td>const char *_callout_info</td><td>key_serial_t destringid</td><td></td><td></td></tr><tr><td>250</td><td>sys_keyctl</td><td>int option</td><td>unsigned long arg2</td><td>unsigned long arg3</td><td>unsigned long arg4</td><td>unsigned long arg5</td><td></td></tr><tr><td>251</td><td>sys_ioprio_set</td><td>int which</td><td>int who</td><td>int ioprio</td><td></td><td></td><td></td></tr><tr><td>252</td><td>sys_ioprio_get</td><td>int which</td><td>int who</td><td></td><td></td><td></td><td></td></tr><tr><td>253</td><td>sys_inotify_init</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>254</td><td>sys_inotify_add_watch</td><td>int fd</td><td>const char *pathname</td><td>u32 mask</td><td></td><td></td><td></td></tr><tr><td>255</td><td>sys_inotify_rm_watch</td><td>int fd</td><td>__s32 wd</td><td></td><td></td><td></td><td></td></tr><tr><td>256</td><td>sys_migrate_pages</td><td>pid_t pid</td><td>unsigned long maxnode</td><td>const unsigned long *old_nodes</td><td>const unsigned long *new_nodes</td><td></td><td></td></tr><tr><td>257</td><td>sys_openat</td><td>int dfd</td><td>const char *filename</td><td>int flags</td><td>int mode</td><td></td><td></td></tr><tr><td>258</td><td>sys_mkdirat</td><td>int dfd</td><td>const char *pathname</td><td>int mode</td><td></td><td></td><td></td></tr><tr><td>259</td><td>sys_mknodat</td><td>int dfd</td><td>const char *filename</td><td>int mode</td><td>unsigned dev</td><td></td><td></td></tr><tr><td>260</td><td>sys_fchownat</td><td>int dfd</td><td>const char *filename</td><td>uid_t user</td><td>gid_t group</td><td>int flag</td><td></td></tr><tr><td>261</td><td>sys_futimesat</td><td>int dfd</td><td>const char *filename</td><td>struct timeval *utimes</td><td></td><td></td><td></td></tr><tr><td>262</td><td>sys_newfstatat</td><td>int dfd</td><td>const char *filename</td><td>struct stat *statbuf</td><td>int flag</td><td></td><td></td></tr><tr><td>263</td><td>sys_unlinkat</td><td>int dfd</td><td>const char *pathname</td><td>int flag</td><td></td><td></td><td></td></tr><tr><td>264</td><td>sys_renameat</td><td>int oldfd</td><td>const char *oldname</td><td>int newfd</td><td>const char *newname</td><td></td><td></td></tr><tr><td>265</td><td>sys_linkat</td><td>int oldfd</td><td>const char *oldname</td><td>int newfd</td><td>const char *newname</td><td>int flags</td><td></td></tr><tr><td>266</td><td>sys_symlinkat</td><td>const char *oldname</td><td>int newfd</td><td>const char *newname</td><td></td><td></td><td></td></tr><tr><td>267</td><td>sys_readlinkat</td><td>int dfd</td><td>const char *pathname</td><td>char *buf</td><td>int bufsiz</td><td></td><td></td></tr><tr><td>268</td><td>sys_fchmodat</td><td>int dfd</td><td>const char *filename</td><td>mode_t mode</td><td></td><td></td><td></td></tr><tr><td>269</td><td>sys_faccessat</td><td>int dfd</td><td>const char *filename</td><td>int mode</td><td></td><td></td><td></td></tr><tr><td>270</td><td>sys_pselect6</td><td>int n</td><td>fd_set *inp</td><td>fd_set *outp</td><td>fd_set *exp</td><td>struct timespec *tsp</td><td>void *sig</td></tr><tr><td>271</td><td>sys_ppoll</td><td>struct pollfd *ufds</td><td>unsigned int nfds</td><td>struct timespec *tsp</td><td>const sigset_t *sigmask</td><td>size_t sigsetsize</td><td></td></tr><tr><td>272</td><td>sys_unshare</td><td>unsigned long unshare_flags</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>273</td><td>sys_set_robust_list</td><td>struct robust_list_head *head</td><td>size_t len</td><td></td><td></td><td></td><td></td></tr><tr><td>274</td><td>sys_get_robust_list</td><td>int pid</td><td>struct robust_list_head **head_ptr</td><td>size_t *len_ptr</td><td></td><td></td><td></td></tr><tr><td>275</td><td>sys_splice</td><td>int fd_in</td><td>loff_t *off_in</td><td>int fd_out</td><td>loff_t *off_out</td><td>size_t len</td><td>unsigned int flags</td></tr><tr><td>276</td><td>sys_tee</td><td>int fdin</td><td>int fdout</td><td>size_t len</td><td>unsigned int flags</td><td></td><td></td></tr><tr><td>277</td><td>sys_sync_file_range</td><td>long fd</td><td>loff_t offset</td><td>loff_t bytes</td><td>long flags</td><td></td><td></td></tr><tr><td>278</td><td>sys_vmsplice</td><td>int fd</td><td>const struct iovec *iov</td><td>unsigned long nr_segs</td><td>unsigned int flags</td><td></td><td></td></tr><tr><td>279</td><td>sys_move_pages</td><td>pid_t pid</td><td>unsigned long nr_pages</td><td>const void **pages</td><td>const int *nodes</td><td>int *status</td><td>int flags</td></tr><tr><td>280</td><td>sys_utimensat</td><td>int dfd</td><td>const char *filename</td><td>struct timespec *utimes</td><td>int flags</td><td></td><td></td></tr><tr><td>281</td><td>sys_epoll_pwait</td><td>int epfd</td><td>struct epoll_event *events</td><td>int maxevents</td><td>int timeout</td><td>const sigset_t *sigmask</td><td>size_t sigsetsize</td></tr><tr><td>282</td><td>sys_signalfd</td><td>int ufd</td><td>sigset_t *user_mask</td><td>size_t sizemask</td><td></td><td></td><td></td></tr><tr><td>283</td><td>sys_timerfd_create</td><td>int clockid</td><td>int flags</td><td></td><td></td><td></td><td></td></tr><tr><td>284</td><td>sys_eventfd</td><td>unsigned int count</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>285</td><td>sys_fallocate</td><td>long fd</td><td>long mode</td><td>loff_t offset</td><td>loff_t len</td><td></td><td></td></tr><tr><td>286</td><td>sys_timerfd_settime</td><td>int ufd</td><td>int flags</td><td>const struct itimerspec *utmr</td><td>struct itimerspec *otmr</td><td></td><td></td></tr><tr><td>287</td><td>sys_timerfd_gettime</td><td>int ufd</td><td>struct itimerspec *otmr</td><td></td><td></td><td></td><td></td></tr><tr><td>288</td><td>sys_accept4</td><td>int fd</td><td>struct sockaddr *upeer_sockaddr</td><td>int *upeer_addrlen</td><td>int flags</td><td></td><td></td></tr><tr><td>289</td><td>sys_signalfd4</td><td>int ufd</td><td>sigset_t *user_mask</td><td>size_t sizemask</td><td>int flags</td><td></td><td></td></tr><tr><td>290</td><td>sys_eventfd2</td><td>unsigned int count</td><td>int flags</td><td></td><td></td><td></td><td></td></tr><tr><td>291</td><td>sys_epoll_create1</td><td>int flags</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>292</td><td>sys_dup3</td><td>unsigned int oldfd</td><td>unsigned int newfd</td><td>int flags</td><td></td><td></td><td></td></tr><tr><td>293</td><td>sys_pipe2</td><td>int *filedes</td><td>int flags</td><td></td><td></td><td></td><td></td></tr><tr><td>294</td><td>sys_inotify_init1</td><td>int flags</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>295</td><td>sys_preadv</td><td>unsigned long fd</td><td>const struct iovec *vec</td><td>unsigned long vlen</td><td>unsigned long pos_l</td><td>unsigned long pos_h</td><td></td></tr><tr><td>296</td><td>sys_pwritev</td><td>unsigned long fd</td><td>const struct iovec *vec</td><td>unsigned long vlen</td><td>unsigned long pos_l</td><td>unsigned long pos_h</td><td></td></tr><tr><td>297</td><td>sys_rt_tgsigqueueinfo</td><td>pid_t tgid</td><td>pid_t pid</td><td>int sig</td><td>siginfo_t *uinfo</td><td></td><td></td></tr><tr><td>298</td><td>sys_perf_event_open</td><td>struct perf_event_attr *attr_uptr</td><td>pid_t pid</td><td>int cpu</td><td>int group_fd</td><td>unsigned long flags</td><td></td></tr><tr><td>299</td><td>sys_recvmmsg</td><td>int fd</td><td>struct msghdr *mmsg</td><td>unsigned int vlen</td><td>unsigned int flags</td><td>struct timespec *timeout</td><td></td></tr><tr><td>300</td><td>sys_fanotify_init</td><td>unsigned int flags</td><td>unsigned int event_f_flags</td><td></td><td></td><td></td><td></td></tr><tr><td>301</td><td>sys_fanotify_mark</td><td>long fanotify_fd</td><td>long flags</td><td>__u64 mask</td><td>long dfd</td><td>long pathname</td><td></td></tr><tr><td>302</td><td>sys_prlimit64</td><td>pid_t pid</td><td>unsigned int resource</td><td>const struct rlimit64 *new_rlim</td><td>struct rlimit64 *old_rlim</td><td></td><td></td></tr><tr><td>303</td><td>sys_name_to_handle_at</td><td>int dfd</td><td>const char *name</td><td>struct file_handle *handle</td><td>int *mnt_id</td><td>int flag</td><td></td></tr><tr><td>304</td><td>sys_open_by_handle_at</td><td>int dfd</td><td>const char *name</td><td>struct file_handle *handle</td><td>int *mnt_id</td><td>int flags</td><td></td></tr><tr><td>305</td><td>sys_clock_adjtime</td><td>clockid_t which_clock</td><td>struct timex *tx</td><td></td><td></td><td></td><td></td></tr><tr><td>306</td><td>sys_syncfs</td><td>int fd</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>307</td><td>sys_sendmmsg</td><td>int fd</td><td>struct mmsghdr *mmsg</td><td>unsigned int vlen</td><td>unsigned int flags</td><td></td><td></td></tr><tr><td>308</td><td>sys_setns</td><td>int fd</td><td>int nstype</td><td></td><td></td><td></td><td></td></tr><tr><td>309</td><td>sys_getcpu</td><td>unsigned *cpup</td><td>unsigned *nodep</td><td>struct getcpu_cache *unused</td><td></td><td></td><td></td></tr><tr><td>310</td><td>sys_process_vm_readv</td><td>pid_t pid</td><td>const struct iovec *lvec</td><td>unsigned long liovcnt</td><td>const struct iovec *rvec</td><td>unsigned long riovcnt</td><td>unsigned long flags</td></tr><tr><td>311</td><td>sys_process_vm_writev</td><td>pid_t pid</td><td>const struct iovec *lvec</td><td>unsigned long liovcnt</td><td>const struct iovcc *rvec</td><td>unsigned long riovcnt</td><td>unsigned long flags</td></tr><tr><td>312</td><td>sys_kcmp</td><td>pid_t pid1</td><td>pid_t pid2</td><td>int type</td><td>unsigned long idx1</td><td>unsigned long idx2</td><td></td></tr><tr><td>313</td><td>sys_finit_module</td><td>int fd</td><td>const char __user *uargs</td><td>int flags</td><td></td><td></td><td></td></tr><tr><td>314</td><td>sys_sched_setattr</td><td>pid_t pid</td><td>struct sched_attr __user *attr</td><td>unsigned int flags</td><td></td><td></td><td></td></tr><tr><td>315</td><td>sys_sched_getattr</td><td>pid_t pid</td><td>struct sched_attr __user *attr</td><td>unsigned int size</td><td>unsigned int flags</td><td></td><td></td></tr><tr><td>316</td><td>sys_renameat2</td><td>int olddfd</td><td>const char __user *oldname</td><td>int newdfd, const char __user *newname</td><td>unsigned int flags</td><td></td><td></td></tr><tr><td>317</td><td>sys_seccomp</td><td>unsigned int op</td><td>unsigned int flags</td><td>const char __user *uargs</td><td></td><td></td><td></td></tr><tr><td>318</td><td>sys_getrandom</td><td>char __user *buf</td><td>size_t count</td><td>unsigned int flags</td><td></td><td></td><td></td></tr><tr><td>319</td><td>sys_memfd_create</td><td>const char __user *uname_ptr</td><td>unsigned 
+int flags</td><td></td><td></td><td></td><td></td></tr><tr><td>320</td><td>sys_kexec_file_load</td><td>int kernel_fd</td><td>int initrd_fd</td><td>unsigned long cmdline_len</td><td>const char __user *cmdline_ptr</td><td>unsigned long flags</td><td></td></tr><tr><td>321</td><td>sys_bpf</td><td>int cmd</td><td>union bpf_attr *attr</td><td>unsigned int size</td><td></td><td></td><td></td></tr><tr><td>322</td><td>stub_execveat</td><td>int dfd</td><td>const char __user *filename</td><td>const char __user *const __user *argv</td><td>const char __user *const __user *envp</td><td>int flags</td><td></td></tr></tbody></table></div>
+				
+			
+				
+
+				
+				
+				
+			
+				
+				
+				
+				
+				
+				
+				
+				
+				<div class="post_info">
+					<p class="tags">
+						Tagged: <a href="http://blog.rchapman.org/tagged/Linux" title="">Linux</a> <a href="http://blog.rchapman.org/tagged/3.19" title="">3.19</a> <a href="http://blog.rchapman.org/tagged/x86_64" title="">x86_64</a> <a href="http://blog.rchapman.org/tagged/syscall" title="">syscall</a> <a href="http://blog.rchapman.org/tagged/64-bit" title="">64 bit</a> 
+					</p>
+						
+					<p class="info">
+					    
+					    <a href="http://blog.rchapman.org/post/36801038863/linux-system-call-table-for-x86-64">Posted on November 29, 2012</a> with <a href="http://blog.rchapman.org/post/36801038863/linux-system-call-table-for-x86-64#notes">7 notes</a>
+					</p>
+					
+					<p style="source_url">
+					    
+                    </p>
+				</div>
+				
+				
+			
+				<div id="notes"><ol class="notes"><!-- START NOTES --><li class="note like tumblelog_tfkdm without_commentary"><a rel="nofollow" class="avatar_frame" target="_blank" href="http://tfkdm.tumblr.com/" title="IT WORKS! "><img src="%3ERyan%20A.%20Chapman%20%7C%20Linux%20System%20Call%20Table%20for%20x86_64_pliki/avatar_905d458631af_16.png" class="avatar " alt=""></a><span class="action"><a rel="nofollow" href="http://tfkdm.tumblr.com/" title="IT WORKS!">tfkdm</a> likes this</span><div class="clear"></div></li><li class="note like tumblelog_thekeithpoole without_commentary"><a rel="nofollow" class="avatar_frame" target="_blank" href="http://thekeithpoole.tumblr.com/" title="Untitled "><img src="%3ERyan%20A.%20Chapman%20%7C%20Linux%20System%20Call%20Table%20for%20x86_64_pliki/pyramid_closed_16.png" class="avatar " alt=""></a><span class="action"><a rel="nofollow" href="http://thekeithpoole.tumblr.com/" title="Untitled">thekeithpoole</a> likes this</span><div class="clear"></div></li><li class="note like tumblelog_vzybilly without_commentary"><a rel="nofollow" class="avatar_frame" target="_blank" href="http://vzybilly.tumblr.com/" title="Random stuff from vzyBilly "><img src="%3ERyan%20A.%20Chapman%20%7C%20Linux%20System%20Call%20Table%20for%20x86_64_pliki/default_avatar_16.png" class="avatar " alt=""></a><span class="action"><a rel="nofollow" href="http://vzybilly.tumblr.com/" title="Random stuff from vzyBilly">vzybilly</a> likes this</span><div class="clear"></div></li><li class="note like tumblelog_wonderlandzor without_commentary"><a rel="nofollow" class="avatar_frame" target="_blank" href="http://wonderlandzor.tumblr.com/" title="Fleeting Thoughts "><img src="%3ERyan%20A.%20Chapman%20%7C%20Linux%20System%20Call%20Table%20for%20x86_64_pliki/avatar_e7773a8d8968_16.png" class="avatar " alt=""></a><span class="action"><a rel="nofollow" href="http://wonderlandzor.tumblr.com/" title="Fleeting Thoughts">wonderlandzor</a> likes this</span><div class="clear"></div></li><li class="note reblog tumblelog_deathbybaconess without_commentary"><a rel="nofollow" class="avatar_frame" target="_blank" href="http://deathbybaconess.tumblr.com/" title=""><img src="%3ERyan%20A.%20Chapman%20%7C%20Linux%20System%20Call%20Table%20for%20x86_64_pliki/avatar_62d7c0b25ef5_16.png" class="avatar " alt=""></a><span class="action" data-post-url="http://deathbybaconess.tumblr.com/post/79261411455"><a rel="nofollow" href="http://deathbybaconess.tumblr.com/" class="tumblelog" title="">deathbybaconess</a> reblogged this from <a rel="nofollow" href="http://blog.rchapman.org/" class="source_tumblelog" title="&gt;Ryan A. Chapman">ryanchapman</a></span><div class="clear"></div></li><li class="note like tumblelog_deathbybaconess without_commentary"><a rel="nofollow" class="avatar_frame" target="_blank" href="http://deathbybaconess.tumblr.com/" title=" "><img src="%3ERyan%20A.%20Chapman%20%7C%20Linux%20System%20Call%20Table%20for%20x86_64_pliki/avatar_62d7c0b25ef5_16.png" class="avatar " alt=""></a><span class="action"><a rel="nofollow" href="http://deathbybaconess.tumblr.com/" title="">deathbybaconess</a> likes this</span><div class="clear"></div></li><li class="note like tumblelog_mhd-hbd without_commentary"><a rel="nofollow" class="avatar_frame" target="_blank" href="http://mhd-hbd.tumblr.com/" title="Mortality Dysphoria "><img src="%3ERyan%20A.%20Chapman%20%7C%20Linux%20System%20Call%20Table%20for%20x86_64_pliki/avatar_2bd6a513071b_16.png" class="avatar " alt=""></a><span class="action"><a rel="nofollow" href="http://mhd-hbd.tumblr.com/" title="Mortality Dysphoria">mhd-hbd</a> likes this</span><div class="clear"></div></li><li class="note reblog tumblelog_ryanchapman original_post without_commentary"><a rel="nofollow" class="avatar_frame" target="_blank" href="http://blog.rchapman.org/" title="&gt;Ryan A. Chapman"><img src="%3ERyan%20A.%20Chapman%20%7C%20Linux%20System%20Call%20Table%20for%20x86_64_pliki/default_avatar_16.png" class="avatar " alt=""></a><span class="action" data-post-url="http://blog.rchapman.org/post/36801038863"><a rel="nofollow" href="http://blog.rchapman.org/" class="tumblelog" title="&gt;Ryan A. Chapman">ryanchapman</a> posted this</span><div class="clear"></div></li><!-- END NOTES --></ol>
+</div>
+					
+			</li> 
+		
+		</ul>
+		
+		
+	
+	</div><!--END content-->
+	
+	<div id="footer"><!--BEGIN footer-->
+	
+		<!--Put your Twitter/Flickr badges and extra links below here-->
+
+		<!--Put your Twitter/Flickr badges and extra links above here-->
+		
+		<div class="following">
+			<ul>
+				
+				<li class="follows"><a href="http://staff.tumblr.com/" title="Tumblr Staff"><img alt="staff" src="%3ERyan%20A.%20Chapman%20%7C%20Linux%20System%20Call%20Table%20for%20x86_64_pliki/avatar_fee7ff3e9d6a_48.png"></a></li>
+				<li class="follows"><a href="http://blog.vyos.net/" title="VyOS"><img alt="vyos-dev" src="%3ERyan%20A.%20Chapman%20%7C%20Linux%20System%20Call%20Table%20for%20x86_64_pliki/avatar_2289da2aa8e3_48.png"></a></li>
+				<li class="follows"><a href="http://andreasavoi.tumblr.com/" title="Senza titolo"><img alt="andreasavoi" src="%3ERyan%20A.%20Chapman%20%7C%20Linux%20System%20Call%20Table%20for%20x86_64_pliki/sphere_open_48.png"></a></li>
+				<li class="follows"><a href="http://dvlsndtls.com/" title="[ daemon@dvlsndtls.com /usr/blog ]$"><img alt="zdannar" src="%3ERyan%20A.%20Chapman%20%7C%20Linux%20System%20Call%20Table%20for%20x86_64_pliki/avatar_448b7ec9cf58_48.png"></a></li>
+			</ul>
+			<div id="clearfix"></div>	
+		</div>
+		
+		
+		
+				
+		<div id="credits">
+			<p><a href="http://fieldnotestheme.tumblr.com/">Field Notes Theme</a>. Designed by <a href="http://manasto.tumblr.com/">Manasto Jones</a>. Powered by <a href="http://www.tumblr.com/">Tumblr</a>.</p>
+		</div>
+		
+	</div><!--END footer-->
+	
+</div><!--END container-->
+
+<!-- BEGIN TUMBLR CODE --><iframe src="%3ERyan%20A.%20Chapman%20%7C%20Linux%20System%20Call%20Table%20for%20x86_64_pliki/analytics.html" scrolling="no" style="background-color:transparent; overflow:hidden; position:absolute; top:0; left:0; z-index:9999;" id="ga_target" frameborder="0" height="1" width="1"></iframe><script type="text/javascript">
+    (function(){
+        var analytics_frame = document.getElementById('ga_target');
+        var analytics_iframe_loaded;
+        var user_logged_in;
+        var blog_is_nsfw = 'No';
+        var addthis_enabled = false;
+
+        var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
+        var eventer = window[eventMethod];
+        var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
+        eventer(messageEvent,function(e) {
+            var message = (e.data && e.data.split) ? e.data.split(';') : '';
+            switch (message[0]) {
+                case 'analytics_iframe_loaded':
+                    analytics_iframe_loaded = true;
+                    postCSMessage();
+                    postGAMessage();
+                    postATMessage();
+                    break;
+                case 'user_logged_in':
+                    user_logged_in = message[1];
+                    postGAMessage();
+                    postATMessage();
+                    break;
+            }
+        }, false);
+
+        analytics_frame.src = "https://secure.assets.tumblr.com/analytics.html?cd0bd711bd372599001af51ceb2e0aaf#" + 
+                              "http://blog.rchapman.org";
+        function postGAMessage() {
+            if (analytics_iframe_loaded && user_logged_in) {
+                var is_ajax = false;
+                analytics_frame.contentWindow.postMessage(['tick_google_analytics', is_ajax, user_logged_in, blog_is_nsfw, '/post/36801038863/linux-system-call-table-for-x86-64?route=%2Fpost%2F%3Aid%2F%3Asummary'].join(';'), analytics_frame.src.split('/analytics.html')[0]);
+            }
+        }
+        function postCSMessage() {
+            COMSCORE = true;
+            analytics_frame.contentWindow.postMessage('enable_comscore;' + window.location, analytics_frame.src.split('/analytics.html')[0]);
+        }
+        function postATMessage() {
+            if (addthis_enabled && analytics_iframe_loaded) {
+                analytics_frame.contentWindow.postMessage('enable_addthis', analytics_frame.src.split('/analytics.html')[0]);
+            }
+        }
+    })();
+</script><script type="text/javascript">!function(s){s.src='https://www.tumblr.com/impixu?T=1429082803&J=eyJ0eXBlIjoidXJsIiwidXJsIjoiaHR0cDpcL1wvYmxvZy5yY2hhcG1hbi5vcmdcL3Bvc3RcLzM2ODAxMDM4ODYzXC9saW51eC1zeXN0ZW0tY2FsbC10YWJsZS1mb3IteDg2LTY0IiwicmVxdHlwZSI6MCwicm91dGUiOiJcL3Bvc3RcLzppZFwvOnN1bW1hcnkifQ==&U=APKOIINCGC&K=3f365cc093213226e0d4f5b7b14a41cbaae7819787fe409e52ceb9713e4ea914&R=http%3A%2F%2Fcs.lmu.edu%2F%7Eray%2Fnotes%2Flinuxsyscalls%2F'.replace(/&R=[^&$]*/,'').concat('&R='+escape(document.referrer)).slice(0,2000).replace(/%.?.?$/,'');}(new Image());</script><noscript><img style="position:absolute;z-index:-3334;top:0px;left:0px;visibility:hidden;" src="https://www.tumblr.com/impixu?T=1429082803&J=eyJ0eXBlIjoidXJsIiwidXJsIjoiaHR0cDpcL1wvYmxvZy5yY2hhcG1hbi5vcmdcL3Bvc3RcLzM2ODAxMDM4ODYzXC9saW51eC1zeXN0ZW0tY2FsbC10YWJsZS1mb3IteDg2LTY0IiwicmVxdHlwZSI6MCwicm91dGUiOiJcL3Bvc3RcLzppZFwvOnN1bW1hcnkiLCJub3NjcmlwdCI6MX0=&U=APKOIINCGC&K=0ea75797dc0a736b7736c97cefa9eb04732d732e1e7cc664c104bf13f8afcc80&R=http%3A%2F%2Fcs.lmu.edu%2F%7Eray%2Fnotes%2Flinuxsyscalls%2F"></noscript><script>
+        (function (w,d) {
+            'use strict';
+            var l = function(el, type, listener, useCapture) {
+                el.addEventListener ?
+                el.addEventListener(type, listener, !!useCapture) :
+                el.attachEvent && el.attachEvent('on' + type, listener, !!useCapture);
+            };
+            var a = function () {
+                                if (d.getElementById('tumblr-cdx')) {
+                    return;
+                }
+                var s = d.createElement('script');
+                var el = d.getElementsByTagName('script')[0];
+                s.async = true;
+                s.src = 'http://assets.tumblr.com/assets/scripts/vendor/cedexis/cedexis.radar.js?_v=52f4655fc08c33e92bbf84738fc9cc2c';
+                s.type = 'text/javascript';
+                s.id = 'tumblr-cdx';
+                d.body.appendChild(s);
+            };
+            l(w,'load',a);
+        }(window, document));
+</script><script type="text/javascript">!function(s){s.src='https://www.tumblr.com/impixu?T=1429082803&J=eyJ0eXBlIjoicG9zdCIsInVybCI6Imh0dHA6XC9cL2Jsb2cucmNoYXBtYW4ub3JnXC9wb3N0XC8zNjgwMTAzODg2M1wvbGludXgtc3lzdGVtLWNhbGwtdGFibGUtZm9yLXg4Ni02NCIsInJlcXR5cGUiOjAsInJvdXRlIjoiXC9wb3N0XC86aWRcLzpzdW1tYXJ5IiwicG9zdHMiOlt7InBvc3RpZCI6IjM2ODAxMDM4ODYzIiwiYmxvZ2lkIjoiMTQwNDA0MSIsInNvdXJjZSI6MzN9XX0=&U=IBHKDMEFHI&K=5e12a179f9d7a1d52c9ab1464e1ad70d2ccc82d08cfd906827191af11b1b2161&R=http%3A%2F%2Fcs.lmu.edu%2F%7Eray%2Fnotes%2Flinuxsyscalls%2F'.replace(/&R=[^&$]*/,'').concat('&R='+escape(document.referrer)).slice(0,2000).replace(/%.?.?$/,'');}(new Image());</script><noscript><img style="position:absolute;z-index:-3334;top:0px;left:0px;visibility:hidden;" src="https://www.tumblr.com/impixu?T=1429082803&J=eyJ0eXBlIjoicG9zdCIsInVybCI6Imh0dHA6XC9cL2Jsb2cucmNoYXBtYW4ub3JnXC9wb3N0XC8zNjgwMTAzODg2M1wvbGludXgtc3lzdGVtLWNhbGwtdGFibGUtZm9yLXg4Ni02NCIsInJlcXR5cGUiOjAsInJvdXRlIjoiXC9wb3N0XC86aWRcLzpzdW1tYXJ5IiwicG9zdHMiOlt7InBvc3RpZCI6IjM2ODAxMDM4ODYzIiwiYmxvZ2lkIjoiMTQwNDA0MSIsInNvdXJjZSI6MzN9XSwibm9zY3JpcHQiOjF9&U=IBHKDMEFHI&K=e4648768aed0c654a3cec2b7d42dfc253110e6490e0d4d80bb607c4500f64274&R=http%3A%2F%2Fcs.lmu.edu%2F%7Eray%2Fnotes%2Flinuxsyscalls%2F"></noscript><script>
+                    (function() {
+                        var s = document.createElement('script');
+                        var el = document.getElementsByTagName('script')[0];
+                        s.src = ('https:' == document.location.protocol ? 'https://s' : 'http://l') + '.yimg.com/ss/rapid-3.18.1.js';
+                        s.onload = function(){
+                            var YAHOO = window.YAHOO;
+                            if (YAHOO) {
+                                var keys = {
+                                    pd:'/post/:id/:summary',
+                                    _li:0,
+                                    b_id:1404041,
+                                    i_rad:0,
+                                    i_strm:0,
+                                    test_id: 'OLD' // version bucket
+
+                                };
+                                var conf = {
+                                                                        spaceid:1197716038,
+                                    client_only:1,
+                                    yql_enabled:false,
+                                    keys:keys,
+                                    nol:1
+                                };
+                                YAHOO.rapid = new YAHOO.i13n.Rapid(conf);
+                            }
+                        };
+                        el.parentNode.insertBefore(s, el);
+                    })();
+                </script><script>
+        (function (w,d) {
+            'use strict';
+            var l = function(el, type, listener, useCapture) {
+                el.addEventListener ?
+                el.addEventListener(type, listener, !!useCapture) :
+                el.attachEvent && el.attachEvent('on' + type, listener, !!useCapture);
+            };
+            var a = function () {
+                                if (d.getElementById('tumblr-cdx')) {
+                    return;
+                }
+                var s = d.createElement('script');
+                var el = d.getElementsByTagName('script')[0];
+                s.async = true;
+                s.src = 'http://assets.tumblr.com/assets/scripts/vendor/cedexis/cedexis.radar.js?_v=52f4655fc08c33e92bbf84738fc9cc2c';
+                s.type = 'text/javascript';
+                s.id = 'tumblr-cdx';
+                d.body.appendChild(s);
+            };
+            l(w,'load',a);
+        }(window, document));
+</script><iframe id="tumblr_controls" class="tumblr_controls sticky visible" scrolling="no" src="%3ERyan%20A.%20Chapman%20%7C%20Linux%20System%20Call%20Table%20for%20x86_64_pliki/o.html" frameborder="0" height="36" width="347"></iframe><div id="teaser_iframe_container" style="display: block; opacity: 0; visibility: hidden; position: fixed; top: 0px; right: 0px; bottom: 0px; width: 1px; height: 100%; z-index: 2147483646; overflow: hidden; background-color: rgba(0, 0, 0, 0.6); transition: width 0.25s ease-in-out 0s;"><iframe style="display: block; opacity: 1; visibility: visible; position: absolute; top: 0px; right: 0px; min-width: 100%; width: 360px; height: 100%;" scrolling="no" src="%3ERyan%20A.%20Chapman%20%7C%20Linux%20System%20Call%20Table%20for%20x86_64_pliki/teaser.html" id="teaser_iframe" frameborder="0" height="1" width="1"></iframe></div><script type="text/javascript">
+    (function(Tumblr){
+        var follow_iframe_initialized = false;
+        if (Tumblr.FollowTeaser && Tumblr.PostMessageListener) {
+            // Don't do anything until the first initialize event
+            Tumblr.PostMessageListener.initialize(function(message, origin) {
+                if (follow_iframe_initialized || message.length < 2) return;
+
+                if (message[0] === 'follow_iframe' && message[1] === 'enable') {
+                    Tumblr.FollowTeaser.current_page = 1;
+                    Tumblr.FollowTeaser.infer_infinite_scroll = true;
+                    Tumblr.FollowTeaser.create_from_tumblr_controls("http:\/\/assets.tumblr.com\/assets\/html\/iframe\/follow.html?_v=129cd7ba75c6d5321afb33211411baa3");
+                    Tumblr.FollowTeaser.scroll_listener(true);
+                    follow_iframe_initialized = true;
+                }
+            });
+        }
+    })(this.Tumblr || (this.Tumblr = {}));
+</script><!--[if IE]><script type="text/javascript">document.getElementById('tumblr_controls').allowTransparency=true;</script><![endif]--><!-- END TUMBLR CODE -->
+
+
+
+<script type="text/javascript">
+function recent_tweets(data) {
+	document.getElementById("tweets").innerHTML = '<li>' + data[0].text +
+	' <a href="http://twitter.com/RyanChapman" title="RyanChapman on Twitter">follow me &rarr;</a></li>';
+}
+</script>
+<script type="text/javascript" src="%3ERyan%20A.%20Chapman%20%7C%20Linux%20System%20Call%20Table%20for%20x86_64_pliki/tweets.html"></script>
+
+
+
+<iframe src="%3ERyan%20A.%20Chapman%20%7C%20Linux%20System%20Call%20Table%20for%20x86_64_pliki/follow.html" scrolling="no" id="tumblr_teaser_follow" frameborder="0" height="1" width="1"></iframe><script id="tumblr-cdx" type="text/javascript" src="%3ERyan%20A.%20Chapman%20%7C%20Linux%20System%20Call%20Table%20for%20x86_64_pliki/cedexis.js" async=""></script><div id="cdx"><script src="%3ERyan%20A.%20Chapman%20%7C%20Linux%20System%20Call%20Table%20for%20x86_64_pliki/jsonp.js" async="" type="text/javascript"></script></div></body></html>

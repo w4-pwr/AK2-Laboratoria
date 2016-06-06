@@ -1,0 +1,95 @@
+
+
+#zadanie 5, zaladowanie par liczb z pliku i zapisanie wyniku dodawania ich do innego pliku
+load_pair_numbers:
+	#otwieranie pliku
+	mov $2, %rax		#sys_open
+	mov $input, %rdi	#otwieramy plik input.txt
+	mov $00, %rsi		#flagi 00
+	syscall
+	mov %rax, %r8		#status trzymamy w r8
+
+
+#czytanie po kolei, pierwszej liczby
+loop:
+	# 0. przygotowanie do odczytu
+	mov $0, %rax		#przestawiamy się na czytanie, sys_read
+	mov %r8, %rdi		#wpisuję status do rdi
+	mov $buf, %rsi		#wpisuję bufor do rsi
+	mov $1, %rdx		#po jednym znaku
+	syscall
+	
+	# 1. sprawdzenie czy koniec pliku
+	cmp $0, %rax
+	je exit			#EOF, wiec koniec
+	
+	# 2. sprawdzamy czy kolejny znak jest spacja ktora oznacza kolejna liczbe do dodania
+	movb (buf), %r9b	#zapisuję liczbę do r9 jako kod ascii
+	cmp $32, %r9		# 32 spacja, sprawdzamy czy jest spacja
+	je druga_liczba		# jesli jest spacja to przechodzimy to funkcji "druga_liczba"
+
+	# 4. zapis WARTOSCI z kodu ASCII do rejestru
+	sub $48, %r9b		#odejmuję 48 od tego co jest w rejestrze r9 żeby mieć wartość z kodu ascii
+	
+	syscall 
+	jmp loop  		#kolejny znak
+
+
+druga_liczba2:
+	# 0. przygotowanie do odczytu
+	mov $0, %rax		#przestawiamy się na czytanie, sys_read
+	mov %r8, %rdi		#wpisuję status do rdi
+	mov $buf, %rsi		#wpisuję bufor do rsi
+	mov $1, %rdx		#po jednym znaku
+	syscall
+	
+	# 1. sprawdzenie czy koniec pliku
+	cmp $0, %rax
+	je exit			#EOF, wiec koniec
+
+	# 3. sprawdzamy czy koniec linii?
+	cmp $10, %r10		# 10 -> EOL, end of line
+	je next_line		#jesli EOL, to sumujemy obie liczby, zapisujemy do pliku i jedziemy dalej
+	
+	# 4. zapis WARTOSCI z kodu ASCII do rejestru
+	sub $48, %r10b		#odejmuję 48 od tego co jest w rejestrze r9 żeby mieć wartość z kodu ascii
+	
+	syscall 
+	jmp loop  		#kolejny znak
+
+
+#tutaj bedziemy sumowac dwie liczby, i zapisywac wynik do pliku
+next_line:
+
+	mov $1, %r9
+	mov $2, %r10
+
+	#dodajemy
+        add %r9, %r10
+        add $48, %r10
+
+       	movb %r10b, (buf)
+        
+        #otwieramy plik do zapisu
+        mov $2, %rax
+	mov $output, %rdi
+	mov $02, %rsi
+	mov $1, %rdx
+	syscall
+        
+        #zapisujemy do pliku
+        mov %rax, %r8
+	mov $1, %rax
+	mov %r8, %rdi
+	mov $buf, %rsi
+	mov $2, %rdx
+	syscall
+
+        
+        #wracamy do loop
+        #jmp load_pair_numbers
+        jmp exit
+
+
+	
+

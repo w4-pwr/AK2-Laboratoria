@@ -1,0 +1,13 @@
+#mnożenie 20 i 5, wynik w RAX
+movl $20, %eax
+movl $5, %ebx
+mul %ebx
+_t0:
+
+#dzielenie 7 przez 2 = wynik w RAX, i reszta w  RDX
+movl $8, %eax
+movl $5, %ebx
+divl %ebx
+_t1:
+
+ 
