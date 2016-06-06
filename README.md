@@ -1,4 +1,4 @@
 # AK2-laboratoria
 GASM 
 
-100% Janusza 
+100% JB
