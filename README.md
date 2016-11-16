@@ -5,6 +5,7 @@ GASM
 
 ![alt tag](http://i.imgur.com/QPiOxQM.jpg)
 
+![alt tag](http://imgur.com/download/m7pctvZ)
 
 Rok 2016, Janusz robi testownik na egzaminie 
 
